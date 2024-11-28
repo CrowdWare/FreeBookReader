@@ -1,20 +1,20 @@
 /****************************************************************************
  * Copyright (C) 2024 CrowdWare
  *
- * This file is part of FreeBookBrowser.
+ * This file is part of FreeBookReader.
  *
- *  FreeBookBrowser is free software: you can redistribute it and/or modify
+ *  FreeBookReader is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
  *  (at your option) any later version.
  *
- *  FreeBookBrowser is distributed in the hope that it will be useful,
+ *  FreeBookReader is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY without even the implied warranty of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *  GNU General Public License for more details.
  *
  *  You should have received a copy of the GNU General Public License
- *  along with FreeBookBrowser.  If not, see <http://www.gnu.org/licenses/>.
+ *  along with FreeBookReader.  If not, see <http://www.gnu.org/licenses/>.
  *
  ****************************************************************************/
 package at.crowdware.freebookreader
@@ -53,7 +53,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import at.crowdware.freebookreader.logic.LocaleManager
 import at.crowdware.freebookreader.ui.App
-import at.crowdware.freebookreader.ui.theme.FreeBookBrowserTheme
+import at.crowdware.freebookreader.ui.theme.FreeBookReaderTheme
 import at.crowdware.freebookreader.ui.widgets.NavigationItem
 import at.crowdware.freebookreader.ui.widgets.NavigationView
 import at.crowdware.freebookreader.utils.ContentLoader
@@ -97,7 +97,7 @@ class MainActivity : ComponentActivity() {
             if (app != null) {
                 enableEdgeToEdge()
                 setContent {
-                    FreeBookBrowserTheme(app!!.theme) {
+                    FreeBookReaderTheme(app!!.theme) {
                         LocaleManager.init(applicationContext, resources)
 
                         if(app!!.id == "at.crowdware.freebookreader") {
@@ -233,7 +233,7 @@ class MainActivity : ComponentActivity() {
 
     // this technique is used to pre install the app to the cache for faster loads
     private fun installCacheFromAssets() {
-        val directory = File(this.filesDir, "ContentCache/crowdware_github_io/FreeBookBrowser")
+        val directory = File(this.filesDir, "ContentCache/crowdware_github_io/FreeBookReader")
         var pages: File
         var parts: File
         var images: File
@@ -246,7 +246,7 @@ class MainActivity : ComponentActivity() {
             return // files exists, nothing to do
         } else {
             try {
-                this.assets.open("FreeBookBrowser/app.sml")
+                this.assets.open("FreeBookReader/app.sml")
             } catch(e: Exception) {
                 return // no pre cached data found, so we have to load via internet
             }
