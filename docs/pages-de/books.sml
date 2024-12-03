@@ -71,7 +71,7 @@ Page {
 					Free-Book-Designer her-
 					gestellt haben.
 					Es dient auch als Beispiel
-					des Machbaren.
+					des Machbaren. 
 					" 
 				weight: 1
 			}
