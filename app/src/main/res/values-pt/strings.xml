@@ -18,4 +18,5 @@
     <string name="title">Título</string>
     <string name="url">Url</string>
     <string name="add_new_link">Adicionar novo link</string>
+    <string name="navigation_books">Livros</string>
 </resources>

@@ -18,4 +18,5 @@
     <string name="title">Titolo</string>
     <string name="url">URL</string>
     <string name="add_new_link">Aldoni novan ligon</string>
+    <string name="navigation_books">Libroj</string>
 </resources>

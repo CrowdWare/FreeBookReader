@@ -37,6 +37,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -111,6 +112,12 @@ class MainActivity : ComponentActivity() {
                                         stringResource(R.string.navigation_home)
                                     ),
                                     NavigationItem(
+                                        "app.books",
+                                        contentLoader.appUrl,
+                                        Icons.Default.ShoppingCart,
+                                        stringResource(R.string.navigation_books)
+                                    ),
+                                    NavigationItem(
                                         "app.about",
                                         contentLoader.appUrl,
                                         Icons.Default.AccountCircle,
@@ -162,7 +169,6 @@ class MainActivity : ComponentActivity() {
                                 }
                             }
                             Scaffold(modifier = Modifier.fillMaxSize(),
-                                //topBar = { TopAppBar(title = { Text("Navigation Example") }) }
                             ) {
                                 if (list.isNotEmpty()) {
                                     NavHost(
@@ -193,12 +199,7 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-
-    /*fun zoomCamera(distance: Float) {
-        // Ensure the distance is within reasonable bounds
-        modelViewer.cameraFocalLength = distance
-    }*/
-
+    
     private fun readAsset(assetName: String): ByteBuffer {
         val input = assets.open(assetName)
         val bytes = ByteArray(input.available())

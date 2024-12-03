@@ -33,7 +33,7 @@ Page {
 					Da Du aber auch ein Sohn bist
 					könnte es ja auch für Dich 
 					interessant sein, und wenn
-					nicht, ist es ja auch nicht
+					nicht, ist es ja auch nicht     
 					so schlimm.
 					"
 			}
