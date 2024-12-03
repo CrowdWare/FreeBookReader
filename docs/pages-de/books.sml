@@ -21,7 +21,7 @@ Page {
 				src: "DieReiseZumWahrenLeben.png" 
 				width: 50
 				weight: 1
-				link: "book:https://artananda.github.io/DieReiseZumWahrenLeben/app.sml"
+				link: "book:https://artananda.github.io/DieReiseZumWahrenLeben"
 			}
 			Spacer {amount: 8}
 			
@@ -54,7 +54,7 @@ Page {
 				src: "SpielDesLebens.png" 
 				width: 50
 				weight: 1 
-				link: "book:https://crowdware.github.io/DeinLeben/app.sml"
+				link: "book:https://crowdware.github.io/DeinLeben"
 			}
 			Spacer {amount: 8}
 			Markdown {

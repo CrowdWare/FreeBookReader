@@ -117,6 +117,7 @@ class ContentLoader {
     @RequiresApi(Build.VERSION_CODES.O)
     suspend fun switchApp(url: String) {
         if(url != appUrl) {
+            println("Switching app to $url")
             val app = loadApp(url+ "/app.sml")
             if(app != null) {
                 context.setNewApp(app)

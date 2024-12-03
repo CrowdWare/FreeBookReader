@@ -464,9 +464,10 @@ fun handleButtonClick(
         }
         link.startsWith("book:") -> {
             val url = link.removePrefix("book:")
-            println("url: $url")
+
             if(url.isNotEmpty()) {
                 CoroutineScope(Dispatchers.IO).launch {
+                    println("switch to url: $url")
                     mainActivity.contentLoader.switchApp(url)
                 }
             }
