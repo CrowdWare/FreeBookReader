@@ -96,6 +96,10 @@ fun NavigationView(items: MutableList<NavigationItem>, mainActivity: MainActivit
                         title.value = "FreeBookReader"
                         navTarget.value = ""
                     }
+                    "app.books" -> {
+                        title.value = stringResource(R.string.about)
+                        navTarget.value = ""
+                    }
                     "app.about" -> {
                         title.value = stringResource(R.string.about)
                         navTarget.value = ""
@@ -117,8 +121,8 @@ fun NavigationView(items: MutableList<NavigationItem>, mainActivity: MainActivit
                         when (items[index].id) {
                             // have a look at MainActivity for navigation
                             "app.home" -> LoadPage("home", navhostBackground, mainActivity, navController)
-                            "app.about" -> LoadPage("about", navhostBackground, mainActivity, navController
-                            )
+                            "app.books" -> LoadPage("books", navhostBackground, mainActivity, navController)
+                            "app.about" -> LoadPage("about", navhostBackground, mainActivity, navController)
                             "app.settings" -> Settings()
                             else -> {
                                 LoadPage(items[index].id, navhostBackground, mainActivity, navController)

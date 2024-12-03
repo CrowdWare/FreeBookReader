@@ -30,6 +30,7 @@ import android.view.SurfaceView
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -87,7 +88,9 @@ import com.google.android.filament.utils.ModelViewer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
@@ -459,6 +462,16 @@ fun handleButtonClick(
             val aniType = link.removePrefix("animation:")
             mainActivity.sendToAnimation(aniType)
         }
+        link.startsWith("book:") -> {
+            val url = link.removePrefix("book:")
+            println("url: $url")
+            if(url.isNotEmpty()) {
+                CoroutineScope(Dispatchers.IO).launch {
+                    mainActivity.contentLoader.switchApp(url)
+                }
+            }
+            NavigationManager.navigate("home")
+        }
         else -> {
             println("Unknown link type: $link")
         }
@@ -468,7 +481,7 @@ fun handleButtonClick(
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun dynamicImageFromAssets(modifier: Modifier = Modifier, mainActivity: MainActivity, navcontroller: NavController, filename: String, scale: String, link: String) {
+fun dynamicImageFromAssets(modifier: Modifier = Modifier, mainActivity: MainActivity, navcontroller: NavHostController, filename: String, scale: String, link: String) {
     var cacheName by remember { mutableStateOf("") }
 
     LaunchedEffect(Unit) {
@@ -492,7 +505,7 @@ fun dynamicImageFromAssets(modifier: Modifier = Modifier, mainActivity: MainActi
                     "none" -> ContentScale.None
                     else -> ContentScale.Fit
                 },
-                modifier = modifier.fillMaxWidth()
+                modifier = modifier.fillMaxWidth().clickable { handleButtonClick(link, mainActivity = mainActivity, navcontroller) }
             )
       } else {
           Text(text = "Image [$filename] not found")

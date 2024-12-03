@@ -199,7 +199,7 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-    
+
     private fun readAsset(assetName: String): ByteBuffer {
         val input = assets.open(assetName)
         val bytes = ByteArray(input.available())

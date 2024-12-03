@@ -17,7 +17,12 @@ Page {
   		Row {
   			padding: "8"
   			
-			Image { src: "DieReiseZumWahrenLeben.png" weight: 1 link: "book:https://github.com/Artananda/DieReiseZumWahrenLeben/app.sml"}
+			Image { 
+				src: "DieReiseZumWahrenLeben.png" 
+				width: 50
+				weight: 1 
+				link: "book:https://github.com/Artananda/DieReiseZumWahrenLeben/app.sml"
+			}
 			Spacer {amount: 8}
 			
 				
@@ -26,15 +31,17 @@ Page {
 				text: "**Die Reise zum wahren**
 					**Leben**
 					*Adam Art Ananda*
-					Neuauflage von 'Die Kunst
-					zu Leben und zu Lieben'
-					Eigentlich habe ich es für
-					meinen Sohn geschrieben.
-					Da Du aber auch ein Sohn bist
-					könnte es ja auch für Dich 
-					interessant sein, und wenn
-					nicht, ist es ja auch nicht     
-					so schlimm.
+
+					Neuauflage von 'Die 
+					Kunst zu Leben und zu 
+					Lieben' Eigentlich habe 
+					ich es für meinen Sohn 
+					geschrieben.
+					Da Du aber auch ein Sohn 
+					bist könnte es ja auch für 
+					Dich interessant sein, und 
+					wenn nicht, ist es ja auch 
+					nicht so schlimm.
 					"
 			}
 		}
@@ -43,7 +50,12 @@ Page {
   		Row {
   			padding: "8"
   			
-			Image { src: "SpielDesLebens.png" weight: 1 link: "book:https://crowdware.github.io/DeinLeben/app.sml"}
+			Image { 
+				src: "SpielDesLebens.png" 
+				width: 50
+				weight: 1 
+				link: "book:https://crowdware.github.io/DeinLeben/app.sml"
+			}
 			Spacer {amount: 8}
 			Markdown {
 				text: "**Spiel des Leben**
@@ -52,11 +64,13 @@ Page {
 					Hier findest Du mehrere
 					Bücher in einem Band.
 					Du kannst in diesem Buch 
-					Deinen eigenen Weg wählen.
-					Das erste interaktive Buch,
-					das wir mit dem FreeBook-
-					Designer hergestellt haben.
-					Es dient aiuch als Beispiel
+					Deinen eigenen Weg 
+					wählen.
+					Das erste interaktive 
+					Buch, das wir mit dem 
+					Free-Book-Designer her-
+					gestellt haben.
+					Es dient auch als Beispiel
 					des Machbaren.
 					" 
 				weight: 1
