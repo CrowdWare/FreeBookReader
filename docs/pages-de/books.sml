@@ -20,7 +20,7 @@ Page {
 			Image { 
 				src: "DieReiseZumWahrenLeben.png" 
 				width: 50
-				weight: 1 
+				weight: 1
 				link: "book:https://artananda.github.io/DieReiseZumWahrenLeben/app.sml"
 			}
 			Spacer {amount: 8}

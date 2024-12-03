@@ -42,7 +42,7 @@ Deployment {
   File { path: "about.sml" time: "2024.11.28 15.52.46" type: "page-en" }
   File { path: "home.sml" time: "2024.11.28 15.56.23" type: "page-en" }
   File { path: "about.sml" time: "2024.12.03 11.16.46" type: "page-de" }
-  File { path: "books.sml" time: "2024.12.03 15.48.27" type: "page-de" }
+  File { path: "books.sml" time: "2024.12.03 16.39.44" type: "page-de" }
   File { path: "home.sml" time: "2024.12.03 11.16.51" type: "page-de" }
   File { path: "about.sml" time: "2024.11.28 15.54.03" type: "page-es" }
   File { path: "home.sml" time: "2024.11.28 15.56.23" type: "page-es" }
