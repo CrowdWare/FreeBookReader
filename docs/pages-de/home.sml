@@ -34,8 +34,9 @@ Page {
 				sogar eine App und erstellen Sie Inhalte für 
 				andere Menschen, die Ihnen helfen werden, 
 				Ihren Träumen näher zu kommen."}
-
-		Spacer { weight: 1 }
+		Spacer { weight: 1  }
+		Button { label: "Bücher" link: "page:app.books"}
+		Spacer { amount:  4}
 		Button { label: "Über FreeBook" link: "page:app.about"}
 	}
 }

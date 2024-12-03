@@ -51,12 +51,6 @@ Deployment {
   File { path: "home.sml" time: "2024.11.11 06.22.31" type: "page-fr" }
   File { path: "about.sml" time: "2024.11.09 18.50.12" type: "page-eo" }
   File { path: "home.sml" time: "2024.11.11 06.22.18" type: "page-eo" }
-
-
-
-
-
-
   File { path: "desktop.png" time: "2024.10.14 09.37.53" type: "image" }
   File { path: "ship.png" time: "2024.09.03 09.08.18" type: "image" }
   File { path: "menu.png" time: "2024.10.16 05.50.12" type: "image" }
@@ -64,8 +58,6 @@ Deployment {
   File { path: "olaf.jpg" time: "2023.06.11 04.47.15" type: "image" }
   File { path: "birds39-forest-20772.mp3" time: "2024.10.13 16.14.46" type: "sound" }
   File { path: "beach.mp4" time: "2024.09.13 17.31.39" type: "video" }
-
-
 }
 // deployment end
 }
