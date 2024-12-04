@@ -65,6 +65,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.input.pointer.pointerInput
@@ -211,10 +212,10 @@ fun RowScope.RenderElement(mainActivity: MainActivity, navController: NavHostCon
             renderText(element)
         }
         is UIElement.MarkdownElement -> {
-            renderMarkdown(element)
+            renderMarkdown(modifier = if(element.weight > 0) Modifier.weight(element.weight.toFloat()) else Modifier, element)
         }
         is UIElement.ButtonElement -> {
-            renderButton(          modifier = if(element.weight > 0) Modifier.weight(element.weight.toFloat()) else Modifier, mainActivity = mainActivity, navController = navController, element = element)
+            renderButton(modifier = if(element.weight > 0) Modifier.weight(element.weight.toFloat()) else Modifier, mainActivity = mainActivity, navController = navController, element = element)
         }
         is UIElement.ImageElement -> {
             dynamicImageFromAssets(modifier = if(element.weight > 0) Modifier.weight(element.weight.toFloat()) else Modifier, mainActivity = mainActivity, navcontroller = navController, filename = element.src, scale = element.scale, link = element.link)
@@ -257,7 +258,7 @@ fun ColumnScope.RenderElement(mainActivity: MainActivity, navController: NavHost
             renderText(element)
         }
         is UIElement.MarkdownElement -> {
-            renderMarkdown(element)
+            renderMarkdown(modifier = if(element.weight > 0){Modifier.weight(element.weight.toFloat())} else {Modifier}, element)
         }
         is UIElement.ButtonElement -> {
             renderButton(modifier= Modifier, element = element, mainActivity = mainActivity, navController = navController)
@@ -334,7 +335,119 @@ fun renderText(element: UIElement.TextElement) {
 }
 
 @Composable
-fun renderMarkdown(element: UIElement.MarkdownElement) {
+fun RowScope.renderMarkdown(modifier: Modifier, element: UIElement.MarkdownElement) {
+    val context = LocalContext.current
+    val mainActivity = context as MainActivity
+    var cacheName by remember { mutableStateOf("") }
+    var text = ""
+
+    if (element.part.isNotEmpty()) {
+        LaunchedEffect(element.part) {
+            cacheName = withContext(Dispatchers.IO) {
+                mainActivity.contentLoader.loadAsset(element.part, "parts")
+            }
+        }
+        if (cacheName.isNotEmpty()) {
+            text = loadTextAssetFromCache(cacheName, context).toString()
+            val parsedMarkdown = parseMarkdown(text)
+
+            ClickableText(
+                modifier = modifier,
+                text = parsedMarkdown,
+                onClick = {offset -> parsedMarkdown.getStringAnnotations(
+                    tag = "URL",
+                    start = offset,
+                    end = offset
+                ).firstOrNull()?.let { annotation ->
+                    handleHyperlinkClick(context, annotation.item)
+                }},
+                style = TextStyle(
+                    color = hexToColor(element.color, MaterialTheme.colorScheme.onBackground),
+                    fontSize = element.fontSize,
+                    fontWeight = element.fontWeight,
+                    textAlign = element.textAlign
+                )
+            )
+        }
+    } else {
+        text = element.text.trim()
+        val parsedMarkdown = parseMarkdown(text)
+        ClickableText(modifier = modifier,
+            text = parsedMarkdown,
+            onClick = {offset -> parsedMarkdown.getStringAnnotations(
+                tag = "URL",
+                start = offset,
+                end = offset
+            ).firstOrNull()?.let { annotation ->
+                handleHyperlinkClick(context, annotation.item)
+            }},
+            style = TextStyle(
+                color = hexToColor(element.color, MaterialTheme.colorScheme.onBackground),
+                fontSize = element.fontSize,
+                fontWeight = element.fontWeight,
+                textAlign = element.textAlign
+            )
+        )
+    }
+}
+@Composable
+fun ColumnScope.renderMarkdown(modifier: Modifier, element: UIElement.MarkdownElement) {
+    val context = LocalContext.current
+    val mainActivity = context as MainActivity
+    var cacheName by remember { mutableStateOf("") }
+    var text = ""
+
+    if (element.part.isNotEmpty()) {
+        LaunchedEffect(element.part) {
+            cacheName = withContext(Dispatchers.IO) {
+                mainActivity.contentLoader.loadAsset(element.part, "parts")
+            }
+        }
+        if (cacheName.isNotEmpty()) {
+            text = loadTextAssetFromCache(cacheName, context).toString()
+            val parsedMarkdown = parseMarkdown(text)
+            ClickableText(
+                modifier = modifier,
+                text = parsedMarkdown,
+                onClick = {offset -> parsedMarkdown.getStringAnnotations(
+                    tag = "URL",
+                    start = offset,
+                    end = offset
+                ).firstOrNull()?.let { annotation ->
+                    handleHyperlinkClick(context, annotation.item)
+                }},
+                style = TextStyle(
+                    color = hexToColor(element.color, MaterialTheme.colorScheme.onBackground),
+                    fontSize = element.fontSize,
+                    fontWeight = element.fontWeight,
+                    textAlign = element.textAlign
+                )
+            )
+        }
+    } else {
+        text = element.text.trim()
+        val parsedMarkdown = parseMarkdown(text)
+        ClickableText(modifier = modifier,
+            text = parsedMarkdown,
+            onClick = {offset -> parsedMarkdown.getStringAnnotations(
+                tag = "URL",
+                start = offset,
+                end = offset
+            ).firstOrNull()?.let { annotation ->
+                handleHyperlinkClick(context, annotation.item)
+            }},
+            style = TextStyle(
+                color = hexToColor(element.color, MaterialTheme.colorScheme.onBackground),
+                fontSize = element.fontSize,
+                fontWeight = element.fontWeight,
+                textAlign = element.textAlign
+            )
+        )
+    }
+}
+
+@Composable
+fun renderMarkdown(modifier: Modifier, element: UIElement.MarkdownElement) {
     val context = LocalContext.current
     val mainActivity = context as MainActivity
     var cacheName by remember { mutableStateOf("") }
@@ -369,8 +482,15 @@ fun renderMarkdown(element: UIElement.MarkdownElement) {
     } else {
         text = element.text.trim()
         val parsedMarkdown = parseMarkdown(text)
-        Text(
+        ClickableText(modifier = modifier,
             text = parsedMarkdown,
+            onClick = {offset -> parsedMarkdown.getStringAnnotations(
+                tag = "URL",
+                start = offset,
+                end = offset
+            ).firstOrNull()?.let { annotation ->
+                handleHyperlinkClick(context, annotation.item)
+            }},
             style = TextStyle(
                 color = hexToColor(element.color, MaterialTheme.colorScheme.onBackground),
                 fontSize = element.fontSize,
@@ -448,7 +568,7 @@ fun RenderElement(
             renderText(element)
         }
         is UIElement.MarkdownElement -> {
-           renderMarkdown(element)
+           renderMarkdown(modifier= Modifier, element)
         }
         is UIElement.ButtonElement -> {
             renderButton(modifier = Modifier, element = element, mainActivity = mainActivity, navController= navController)

@@ -144,6 +144,11 @@ fun parseMarkdown(markdown: String): AnnotatedString {
                     }
                     j = line.length
                 }
+                line.startsWith("<", j) && line.indexOf(">", j) > 0 -> {
+                    // ignore html tags
+                    val endParen = line.indexOf(">", j)
+                    j = endParen + 1
+                }
                 line.startsWith("![", j) -> {
                     // ignore images here
                     val endParen = line.indexOf(")", j)
