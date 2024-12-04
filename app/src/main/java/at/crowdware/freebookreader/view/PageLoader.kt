@@ -21,12 +21,14 @@ package at.crowdware.freebookreader.view
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Build
 import android.view.Choreographer
 import android.view.SurfaceView
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -45,6 +47,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults.buttonColors
@@ -344,18 +347,24 @@ fun renderMarkdown(element: UIElement.MarkdownElement) {
             }
         }
         if (cacheName.isNotEmpty()) {
-                text = loadTextAssetFromCache(cacheName, context).toString()
-                val parsedMarkdown = parseMarkdown(text)
-                Text(
-                    text = parsedMarkdown,
-                    style = TextStyle(
-                        color = hexToColor(element.color, MaterialTheme.colorScheme.onBackground),
-                        fontSize = element.fontSize,
-                        fontWeight = element.fontWeight,
-                        textAlign = element.textAlign
-                    )
+            text = loadTextAssetFromCache(cacheName, context).toString()
+            val parsedMarkdown = parseMarkdown(text)
+            ClickableText(
+                text = parsedMarkdown,
+                onClick = {offset -> parsedMarkdown.getStringAnnotations(
+                    tag = "URL",
+                    start = offset,
+                    end = offset
+                ).firstOrNull()?.let { annotation ->
+                    handleHyperlinkClick(context, annotation.item)
+                }},
+                style = TextStyle(
+                    color = hexToColor(element.color, MaterialTheme.colorScheme.onBackground),
+                    fontSize = element.fontSize,
+                    fontWeight = element.fontWeight,
+                    textAlign = element.textAlign
                 )
-
+            )
         }
     } else {
         text = element.text.trim()
@@ -369,6 +378,25 @@ fun renderMarkdown(element: UIElement.MarkdownElement) {
                 textAlign = element.textAlign
             )
         )
+    }
+}
+
+fun handleHyperlinkClick(context: Context, url: String) {
+    when {
+        url.startsWith("http://") || url.startsWith("https://") -> {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+            context.startActivity(intent)
+        }
+        url.startsWith("mailto:") -> {
+            val intent = Intent(Intent.ACTION_SENDTO).apply {
+                data = Uri.parse(url)
+            }
+            context.startActivity(intent)
+        }
+        else -> {
+            // fallback
+            Toast.makeText(context, "Unknown Link: $url", Toast.LENGTH_SHORT).show()
+        }
     }
 }
 
@@ -467,7 +495,6 @@ fun handleButtonClick(
 
             if(url.isNotEmpty()) {
                 CoroutineScope(Dispatchers.IO).launch {
-                    println("switch to url: $url")
                     mainActivity.contentLoader.switchApp(url)
                 }
             }
