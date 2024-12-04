@@ -42,8 +42,8 @@ Deployment {
   File { path: "about.sml" time: "2024.11.28 15.52.46" type: "page-en" }
   File { path: "home.sml" time: "2024.11.28 15.56.23" type: "page-en" }
   File { path: "about.sml" time: "2024.12.03 11.16.46" type: "page-de" }
-  File { path: "books.sml" time: "2024.12.03 16.49.01" type: "page-de" }
-  File { path: "home.sml" time: "2024.12.03 11.16.51" type: "page-de" }
+  File { path: "books.sml" time: "2024.12.04 04.04.17" type: "page-de" }
+  File { path: "home.sml" time: "2024.12.04 10.22.26" type: "page-de" }
   File { path: "about.sml" time: "2024.11.28 15.54.03" type: "page-es" }
   File { path: "home.sml" time: "2024.11.28 15.56.23" type: "page-es" }
   File { path: "about.sml" time: "2024.11.28 15.54.10" type: "page-pt" }
@@ -62,7 +62,7 @@ Deployment {
   File { path: "ship.png" time: "2024.09.03 09.08.18" type: "image" }
   File { path: "menu.png" time: "2024.10.16 05.50.12" type: "image" }
   File { path: "art_anyona.jpg" time: "2024.10.15 00.52.04" type: "image" }
-  File { path: "DieReiseZumWahrenLeben.jpg" time: "2024.11.28 11.03.21" type: "image" }
+  File { path: "DieReiseZumWahrenLeben.jpg" time: "2024.12.03 16.52.22" type: "image" }
   File { path: "DieReiseZumWahrenLeben.png" time: "2024.12.03 10.28.21" type: "image" }
   File { path: "SpielDesLebens.png" time: "2024.12.03 10.47.22" type: "image" }
   File { path: "olaf.jpg" time: "2023.06.11 04.47.15" type: "image" }
