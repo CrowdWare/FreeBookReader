@@ -130,13 +130,15 @@ sealed class UIElement {
         val weight: Int,
         val width: Int,
         val height: Int,
-        val uiElements: MutableList<UIElement> = mutableListOf()) : UIElement()
+        val uiElements: MutableList<UIElement> = mutableListOf()
+    ) : UIElement()
     data class ColumnElement(
         val padding: Padding,
         val weight: Int,
         val width: Int,
         val height: Int,
-        val uiElements: MutableList<UIElement> = mutableListOf()) : UIElement()
+        val uiElements: MutableList<UIElement> = mutableListOf()
+    ) : UIElement()
     data class MarkdownElement(
         val text: String,
         val part: String,
@@ -155,8 +157,9 @@ sealed class UIElement {
         val ibl: String,
         val skybox: String
     ) : UIElement()
-    data class EmbedElement(
-        val url: String
+    data class LazyColumnElement(
+        val url: String,
+        val uiElements: MutableList<UIElement> = mutableListOf()
     ) : UIElement()
 }
 

@@ -209,6 +209,9 @@ fun RowScope.RenderElement(mainActivity: MainActivity, navController: NavHostCon
         is UIElement.RowElement -> {
             renderRow(mainActivity, navController, element)
         }
+        is UIElement.LazyColumnElement -> {
+            renderLazyColumn(mainActivity, navController, element)
+        }
         is UIElement.TextElement -> {
             renderText(element)
         }
@@ -233,9 +236,6 @@ fun RowScope.RenderElement(mainActivity: MainActivity, navController: NavHostCon
         is UIElement.SceneElement -> {
             dynamicScene(modifier = if(element.weight > 0){Modifier.weight(element.weight.toFloat())} else {Modifier}, element)
         }
-        is UIElement.EmbedElement -> {
-            dynamicEmbed(modifier = Modifier, url = element.url)
-        }
         is UIElement.SpacerElement -> {
             var mod = Modifier as Modifier
             if (element.amount > 0)
@@ -257,6 +257,9 @@ fun ColumnScope.RenderElement(mainActivity: MainActivity, navController: NavHost
         }
         is UIElement.RowElement -> {
             renderRow(mainActivity, navController, element)
+        }
+        is UIElement.LazyColumnElement -> {
+            renderLazyColumn(mainActivity,navController,element)
         }
         is UIElement.TextElement -> {
             renderText(element)
@@ -281,9 +284,6 @@ fun ColumnScope.RenderElement(mainActivity: MainActivity, navController: NavHost
         }
         is UIElement.SceneElement -> {
             dynamicScene(modifier = if(element.weight > 0){Modifier.weight(element.weight.toFloat())} else {Modifier}, element)
-        }
-        is UIElement.EmbedElement -> {
-            dynamicEmbed(modifier = Modifier, url = element.url)
         }
         is UIElement.SpacerElement -> {
             var mod = Modifier as Modifier
@@ -325,6 +325,15 @@ fun renderRow(mainActivity: MainActivity, navController: NavHostController, elem
         for (ele in element.uiElements) {
             RenderElement(mainActivity, navController, ele)
         }
+    }
+}
+
+@RequiresApi(Build.VERSION_CODES.O)
+@Composable
+fun renderLazyColumn(mainActivity: MainActivity, navController: NavHostController, element: UIElement.LazyColumnElement) {
+    println("renderLazyColumn: ${element.url}")
+    for (ele in element.uiElements) {
+        RenderElement(ele, mainActivity, navController)
     }
 }
 
@@ -571,6 +580,9 @@ fun RenderElement(
         is UIElement.RowElement -> {
             renderRow(mainActivity, navController, element)
         }
+        is UIElement.LazyColumnElement -> {
+            renderLazyColumn(mainActivity, navController, element)
+        }
         is UIElement.TextElement -> {
             renderText(element)
         }
@@ -594,9 +606,6 @@ fun RenderElement(
         }
         is UIElement.SceneElement -> {
             dynamicScene(modifier = Modifier, element = element)
-        }
-        is UIElement.EmbedElement -> {
-            dynamicEmbed(modifier = Modifier, url =  element.url)
         }
         else -> {}
     }
