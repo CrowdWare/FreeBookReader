@@ -1,13 +1,13 @@
 Page {
-	padding: "8"
-	title: "FreeBookReader"
+    padding: "8"
+	   title: "FreeBookReader"
 
-	Column {
-		padding: "8"
+    Column {
+		      padding: "8"
 						
-		Markdown {
-			color: "#4C9BD9"
-			text: "# Willkommen"
+        Markdown {
+            color: "#4C9BD9"
+            text: "# Willkommen"
   		}
   		Markdown { 
       		fontSize: 16

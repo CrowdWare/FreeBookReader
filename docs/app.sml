@@ -40,18 +40,19 @@ App {
 // deployment start - don't edit here
 Deployment {
   File { path: "about.sml" time: "2024.11.28 15.52.46" type: "page-en" }
-  File { path: "home.sml" time: "2024.11.28 15.56.23" type: "page-en" }
-  File { path: "about.sml" time: "2024.12.03 11.16.46" type: "page-de" }
-  File { path: "books.sml" time: "2024.12.04 04.04.17" type: "page-de" }
-  File { path: "home.sml" time: "2024.12.04 10.22.26" type: "page-de" }
+  File { path: "home.sml" time: "2024.12.07 12.34.28" type: "page-en" }
+  File { path: "about.sml" time: "2024.12.06 08.17.22" type: "page-de" }
+  File { path: "books.sml" time: "2025.03.15 19.57.00" type: "page-de" }
+  File { path: "home.sml" time: "2024.12.06 08.05.23" type: "page-de" }
   File { path: "about.sml" time: "2024.11.28 15.54.03" type: "page-es" }
-  File { path: "home.sml" time: "2024.11.28 15.56.23" type: "page-es" }
+  File { path: "home.sml" time: "2024.12.07 12.34.43" type: "page-es" }
   File { path: "about.sml" time: "2024.11.28 15.54.10" type: "page-pt" }
-  File { path: "home.sml" time: "2024.11.28 15.56.23" type: "page-pt" }
+  File { path: "home.sml" time: "2024.12.07 12.34.58" type: "page-pt" }
   File { path: "about.sml" time: "2024.11.28 15.54.06" type: "page-fr" }
-  File { path: "home.sml" time: "2024.11.28 15.56.23" type: "page-fr" }
+  File { path: "home.sml" time: "2024.12.07 12.34.50" type: "page-fr" }
   File { path: "about.sml" time: "2024.11.28 15.53.59" type: "page-eo" }
-  File { path: "home.sml" time: "2024.11.28 15.56.23" type: "page-eo" }
+  File { path: "books.sml" time: "2025.03.15 20.10.05" type: "page-eo" }
+  File { path: "home.sml" time: "2025.03.15 19.58.01" type: "page-eo" }
 
 
 
