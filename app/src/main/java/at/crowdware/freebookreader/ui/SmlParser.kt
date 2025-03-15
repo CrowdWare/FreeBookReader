@@ -302,7 +302,7 @@ fun parseNestedElements(nestedElements: List<Any>, elements: MutableList<UIEleme
                         elements.add(yt)
                     }
                     "Scene" -> {
-                        val yt = UIElement.SceneElement(
+                        val scene = UIElement.SceneElement(
                             width = (properties["width"] as? PropertyValue.IntValue)?.value ?: 0,
                             height = (properties["height"] as? PropertyValue.IntValue)?.value ?: 0,
                             weight = (properties["weight"] as? PropertyValue.IntValue)?.value ?: 0,
@@ -310,7 +310,13 @@ fun parseNestedElements(nestedElements: List<Any>, elements: MutableList<UIEleme
                             skybox = (properties["skybox"] as? PropertyValue.StringValue)?.value ?: "",
                             ibl = (properties["ibl"] as? PropertyValue.StringValue)?.value ?: "",
                         )
-                        elements.add(yt)
+                        elements.add(scene)
+                    }
+                    "Embed" -> {
+                        val embed = UIElement.EmbedElement(
+                            url = (properties["url"] as? PropertyValue.StringValue)?.value ?: "",
+                        )
+                        elements.add(embed)
                     }
                 }
             }

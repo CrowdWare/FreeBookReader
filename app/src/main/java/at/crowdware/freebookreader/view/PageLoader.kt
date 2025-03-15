@@ -795,6 +795,7 @@ fun dynamicEmbed(modifier: Modifier = Modifier, url: String) {
     val mainActivity = context as MainActivity
 
     Text(modifier = modifier, text = "Embed")
+    println("Embed: $url")
 }
 
 @Composable
