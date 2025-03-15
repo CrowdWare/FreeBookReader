@@ -155,6 +155,9 @@ sealed class UIElement {
         val ibl: String,
         val skybox: String
     ) : UIElement()
+    data class EmbedElement(
+        val url: String
+    ) : UIElement()
 }
 
 data class Padding(val top: Int, val right: Int, val bottom: Int, val left: Int)

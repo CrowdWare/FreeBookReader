@@ -26,6 +26,7 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Build
+import android.provider.Contacts.Intents.UI
 import android.view.Choreographer
 import android.view.SurfaceView
 import android.widget.Toast
@@ -232,6 +233,9 @@ fun RowScope.RenderElement(mainActivity: MainActivity, navController: NavHostCon
         is UIElement.SceneElement -> {
             dynamicScene(modifier = if(element.weight > 0){Modifier.weight(element.weight.toFloat())} else {Modifier}, element)
         }
+        is UIElement.EmbedElement -> {
+            dynamicEmbed(modifier = Modifier, url = element.url)
+        }
         is UIElement.SpacerElement -> {
             var mod = Modifier as Modifier
             if (element.amount > 0)
@@ -277,6 +281,9 @@ fun ColumnScope.RenderElement(mainActivity: MainActivity, navController: NavHost
         }
         is UIElement.SceneElement -> {
             dynamicScene(modifier = if(element.weight > 0){Modifier.weight(element.weight.toFloat())} else {Modifier}, element)
+        }
+        is UIElement.EmbedElement -> {
+            dynamicEmbed(modifier = Modifier, url = element.url)
         }
         is UIElement.SpacerElement -> {
             var mod = Modifier as Modifier
@@ -588,6 +595,9 @@ fun RenderElement(
         is UIElement.SceneElement -> {
             dynamicScene(modifier = Modifier, element = element)
         }
+        is UIElement.EmbedElement -> {
+            dynamicEmbed(modifier = Modifier, url =  element.url)
+        }
         else -> {}
     }
 }
@@ -779,6 +789,12 @@ fun loadImageFromCache(context: Context, filename: String): Bitmap? {
         e.printStackTrace()
         null
     }
+}@Composable
+fun dynamicEmbed(modifier: Modifier = Modifier, url: String) {
+    val context = LocalContext.current
+    val mainActivity = context as MainActivity
+
+    Text(modifier = modifier, text = "Embed")
 }
 
 @Composable
