@@ -14,6 +14,7 @@ Page {
             text: "Hier eine Liste der derzeit verfügbaren Bücher."
         }
         Spacer {amount: 8}
+
         LazyColumn {
             url: "https://artanidos.pythonanywhere.com/crowdware/items?type=book" 
 
@@ -34,6 +35,7 @@ Page {
                 Spacer {amount: 8}
             }
         }
+
         Spacer {amount: 8}
         Button {label: "Home" link: "page:app.home" }       
     }
