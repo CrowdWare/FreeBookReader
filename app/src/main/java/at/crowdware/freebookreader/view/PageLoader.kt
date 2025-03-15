@@ -789,13 +789,6 @@ fun loadImageFromCache(context: Context, filename: String): Bitmap? {
         e.printStackTrace()
         null
     }
-}@Composable
-fun dynamicEmbed(modifier: Modifier = Modifier, url: String) {
-    val context = LocalContext.current
-    val mainActivity = context as MainActivity
-
-    Text(modifier = modifier, text = "Embed")
-    println("Embed: $url")
 }
 
 @Composable
@@ -899,6 +892,15 @@ fun dynamicScene(modifier: Modifier = Modifier, element: UIElement.SceneElement)
             choreographer.removeFrameCallback(frameCallback)
         }
     }
+}
+
+@Composable
+fun dynamicEmbed(modifier: Modifier = Modifier, url: String) {
+    val context = LocalContext.current
+    val mainActivity = context as MainActivity
+
+    //Text(modifier = modifier, text = "Embed")
+    //println("Embed: $url")
 }
 
 fun loadAssetFromCache(assetName: String, context: Context): ByteBuffer {

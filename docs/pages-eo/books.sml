@@ -9,13 +9,32 @@ Page {
         Markdown {
             color: "#4C9BD9"
             text: "# Bücher"
-          }
-          Markdown {
+        }
+        Markdown {
             text: "Hier eine Liste der derzeit verfügbaren Bücher."
-          }
-          Spacer {amount: 8}
-          Embed {url: "https://artanidos.pythonanywhere.com/crowdware/items?type=book"}          
-          Spacer {amount: 8}
-          Button {label: "Home" link: "page:app.home" }
+        }
+        Spacer {amount: 8}
+        LazyColumn {
+            url: "https://artanidos.pythonanywhere.com/crowdware/items?type=book" 
+
+            Row {
+                padding: "8"
+              
+                Image { 
+                    src: "<src>" 
+                    width: 50
+                    weight: 1
+                    link: "<link>"
+                }
+                Spacer {amount: 8}
+                Markdown {
+                    weight: 1
+                    text: "<description>"
+                }
+                Spacer {amount: 8}
+            }
+        }
+        Spacer {amount: 8}
+        Button {label: "Home" link: "page:app.home" }       
     }
 }
