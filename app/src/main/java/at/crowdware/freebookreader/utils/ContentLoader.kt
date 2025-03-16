@@ -127,14 +127,13 @@ class ContentLoader {
     @RequiresApi(Build.VERSION_CODES.O)
     suspend fun loadPage(name: String): Page? {
         var lang = "-" + LocaleManager.getLanguage()
-
         if (appUrl != MainActivity.url.substringBefore("/app.sml"))
             lang = "" // only one language for books, for now
         var fileContent = ""
         val url = "$appUrl/pages$lang/$name.sml"
         if (app == null)
             return null
-        val result = app!!.deployment.files.find { it.path == "$name.sml"}
+        val result = app!!.deployment.files.find { it.path == "$name.sml" && it.type == "page$lang"}
         if (result == null) {
             return null
         }
@@ -188,10 +187,8 @@ class ContentLoader {
         var fileContent = ""
 
         appUrl = url.substringBefore("/app.sml")
-
         val fileName = "ContentCache/" + appUrl.substringAfter("://").replace(".", "_").replace(":", "_") + "/app.sml"
         val file = File(context.filesDir, fileName)
-
         // Make sure the parent directories exist
         val parentDir = file.parentFile
         if (parentDir != null && !parentDir.exists()) {

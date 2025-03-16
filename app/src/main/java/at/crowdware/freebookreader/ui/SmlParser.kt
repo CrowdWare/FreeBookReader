@@ -313,6 +313,7 @@ fun parseNestedElements(nestedElements: List<Any>, elements: MutableList<UIEleme
                         elements.add(scene)
                     }
                     "LazyColumn" -> {
+                        // TODO: Cached SML file are not updated
                         println("LazyColumn")
                         val lc = UIElement.LazyColumnElement(
                             url = (properties["url"] as? PropertyValue.StringValue)?.value ?: "",
