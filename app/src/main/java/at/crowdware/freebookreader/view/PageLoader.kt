@@ -332,9 +332,41 @@ fun renderRow(mainActivity: MainActivity, navController: NavHostController, elem
 @Composable
 fun renderLazyColumn(mainActivity: MainActivity, navController: NavHostController, element: UIElement.LazyColumnElement) {
     val url = element.url
+    val data = remember { mutableStateOf<List<Any>>(emptyList()) }
+    var isLoading by remember { mutableStateOf(true) }
 
-    for (ele in element.uiElements) {
-        RenderElement(ele, mainActivity, navController)
+    LaunchedEffect(url) {
+        data.value = mainActivity.contentLoader.fetchJsonData(url)
+        isLoading = false
+    }
+
+    if (isLoading) {
+        CircularProgressIndicator()
+    } else {
+        Text(text = "Placeholder")
+        /*
+        for (book in books.value) {
+            Row {
+                Image(
+                    painter = rememberImagePainter(book.src),
+                    contentDescription = null,
+                    modifier = Modifier.width(50.dp)
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                Column {
+                    Text(text = book.description)
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Text(
+                        text = "Link",
+                        color = Color.Blue,
+                        modifier = Modifier.clickable {
+                            // Handle link click
+                            mainActivity.openWebPage(book.link)
+                        }
+                    )
+                }
+            }
+        }*/
     }
 }
 

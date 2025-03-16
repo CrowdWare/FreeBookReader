@@ -29,6 +29,7 @@ import at.crowdware.freebookreader.ui.App
 import at.crowdware.freebookreader.ui.Page
 import kotlinx.coroutines.*
 import okhttp3.*
+import org.json.JSONArray
 import java.io.File
 import java.io.IOException
 import java.time.Instant
@@ -63,6 +64,30 @@ class ContentLoader {
                 val values = line.split("|")
                 links.add(Link(values[0], values[1]))
             }
+        }
+    }
+
+    suspend fun fetchJsonData(url: String): List<Any> = withContext(Dispatchers.IO) {
+        val client = OkHttpClient()
+        val request = Request.Builder().url(url).build()
+        val response: Response = client.newCall(request).execute()
+
+        if (response.isSuccessful) {
+            val jsonData = response.body?.string()
+            val jsonArray = JSONArray(jsonData)
+            val dataList = mutableListOf<Any>()
+
+            for (i in 0 until jsonArray.length()) {
+                val jsonObject = jsonArray.getJSONObject(i)
+                val dataMap = mutableMapOf<String, Any>()
+                jsonObject.keys().forEach { key ->
+                    dataMap[key] = jsonObject.get(key)
+                }
+                dataList.add(dataMap)
+            }
+            dataList
+        } else {
+            emptyList()
         }
     }
 
