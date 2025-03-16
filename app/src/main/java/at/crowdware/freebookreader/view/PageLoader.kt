@@ -26,7 +26,6 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Build
-import android.provider.Contacts.Intents.UI
 import android.view.Choreographer
 import android.view.SurfaceView
 import android.widget.Toast
@@ -66,7 +65,6 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.input.pointer.pointerInput
@@ -78,7 +76,6 @@ import androidx.compose.ui.viewinterop.AndroidView
 import androidx.media3.common.MediaItem
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.ui.PlayerView
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import at.crowdware.freebookreader.MainActivity
 import at.crowdware.freebookreader.ui.Padding
@@ -95,7 +92,6 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.Abs
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
@@ -194,47 +190,67 @@ fun RenderPage(
     mainActivity: MainActivity,
     navController: NavHostController
 ) {
+    var dataItem: Any = emptyMap<String, Any>() // no data yet
+
     for (element in page.elements) {
-        RenderElement(element, mainActivity, navController)
+        RenderElement(element, mainActivity, navController, dataItem)
     }
 }
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun RowScope.RenderElement(mainActivity: MainActivity, navController: NavHostController, element: UIElement) {
+fun RowScope.RenderElement(mainActivity: MainActivity, navController: NavHostController, element: UIElement, dataItem: Any) {
     when(element) {
         is UIElement.ColumnElement -> {
-            renderColumn(mainActivity, navController, element)
+            renderColumn(mainActivity, navController, element, dataItem)
         }
         is UIElement.RowElement -> {
-            renderRow(mainActivity, navController, element)
+            renderRow(mainActivity, navController, element, dataItem)
         }
         is UIElement.LazyColumnElement -> {
             renderLazyColumn(mainActivity, navController, element)
         }
         is UIElement.TextElement -> {
-            renderText(element)
+            renderText(element, dataItem)
         }
         is UIElement.MarkdownElement -> {
-            renderMarkdown(modifier = if(element.weight > 0) Modifier.weight(element.weight.toFloat()) else Modifier, element)
+            renderMarkdown(modifier = if(element.weight > 0) Modifier.weight(element.weight.toFloat()) else Modifier, element, dataItem = dataItem)
         }
         is UIElement.ButtonElement -> {
-            renderButton(modifier = if(element.weight > 0) Modifier.weight(element.weight.toFloat()) else Modifier, mainActivity = mainActivity, navController = navController, element = element)
+            renderButton(
+                modifier = if(element.weight > 0) Modifier.weight(element.weight.toFloat()) else Modifier,
+                element = element,
+                mainActivity = mainActivity,
+                navController = navController,
+                dataItem = dataItem
+            )
         }
         is UIElement.ImageElement -> {
-            dynamicImageFromAssets(modifier = if(element.weight > 0) Modifier.weight(element.weight.toFloat()) else Modifier, mainActivity = mainActivity, navcontroller = navController, filename = element.src, scale = element.scale, link = element.link)
+            dynamicImageFromAssets(
+                modifier = if(element.weight > 0) Modifier.weight(element.weight.toFloat()) else Modifier,
+                mainActivity = mainActivity,
+                navcontroller = navController,
+                filename = element.src,
+                scale = element.scale,
+                link = element.link,
+                dataItem = dataItem
+            )
         }
         is UIElement.VideoElement -> {
-            dynamicVideofromAssets(modifier = if(element.weight > 0) Modifier.weight(element.weight.toFloat()) else Modifier, mainActivity = mainActivity, filename = element.src)
+            dynamicVideofromAssets(modifier = if(element.weight > 0) Modifier.weight(element.weight.toFloat()) else Modifier, mainActivity = mainActivity, filename = element.src, dataItem = dataItem)
         }
         is UIElement.SoundElement -> {
-            dynamicSoundfromAssets(mainActivity, element.src)
+            dynamicSoundfromAssets(mainActivity, element.src, dataItem)
         }
         is UIElement.YoutubeElement -> {
-            dynamicYoutube(modifier = if(element.weight > 0){Modifier.weight(element.weight.toFloat())} else {Modifier}, videoId = element.id)
+            dynamicYoutube(modifier = if(element.weight > 0){Modifier.weight(element.weight.toFloat())} else {Modifier}, videoId = element.id, dataItem = dataItem)
         }
         is UIElement.SceneElement -> {
-            dynamicScene(modifier = if(element.weight > 0){Modifier.weight(element.weight.toFloat())} else {Modifier}, element)
+            dynamicScene(
+                modifier = if(element.weight > 0){Modifier.weight(element.weight.toFloat())} else {Modifier},
+                element,
+                dataItem
+            )
         }
         is UIElement.SpacerElement -> {
             var mod = Modifier as Modifier
@@ -250,40 +266,58 @@ fun RowScope.RenderElement(mainActivity: MainActivity, navController: NavHostCon
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun ColumnScope.RenderElement(mainActivity: MainActivity, navController: NavHostController, element: UIElement) {
+fun ColumnScope.RenderElement(mainActivity: MainActivity, navController: NavHostController, element: UIElement, dataItem: Any) {
     when (element) {
         is UIElement.ColumnElement -> {
-            renderColumn(mainActivity, navController, element)
+            renderColumn(mainActivity, navController, element, dataItem)
         }
         is UIElement.RowElement -> {
-            renderRow(mainActivity, navController, element)
+            renderRow(mainActivity, navController, element, dataItem)
         }
         is UIElement.LazyColumnElement -> {
             renderLazyColumn(mainActivity,navController,element)
         }
         is UIElement.TextElement -> {
-            renderText(element)
+            renderText(element, dataItem)
         }
         is UIElement.MarkdownElement -> {
             renderMarkdown(modifier = if(element.weight > 0){Modifier.weight(element.weight.toFloat())} else {Modifier}, element)
         }
         is UIElement.ButtonElement -> {
-            renderButton(modifier= Modifier, element = element, mainActivity = mainActivity, navController = navController)
+            renderButton(
+                modifier= Modifier,
+                element = element,
+                mainActivity = mainActivity,
+                navController = navController,
+                dataItem = dataItem
+            )
         }
         is UIElement.ImageElement -> {
-            dynamicImageFromAssets(modifier = if(element.weight > 0){Modifier.weight(element.weight.toFloat())} else {Modifier}, mainActivity = mainActivity, navcontroller = navController, filename = element.src, scale =element.scale, link = element.link)
+            dynamicImageFromAssets(
+                modifier = if(element.weight > 0){Modifier.weight(element.weight.toFloat())} else {Modifier},
+                mainActivity = mainActivity,
+                navcontroller = navController,
+                filename = element.src,
+                scale =element.scale,
+                link = element.link,
+                dataItem = dataItem
+            )
         }
         is UIElement.VideoElement -> {
-            dynamicVideofromAssets(modifier = if(element.weight > 0){Modifier.weight(element.weight.toFloat())} else {Modifier}, mainActivity = mainActivity, filename = element.src)
+            dynamicVideofromAssets(modifier = if(element.weight > 0){Modifier.weight(element.weight.toFloat())} else {Modifier}, mainActivity = mainActivity, filename = element.src, dataItem = dataItem)
         }
         is UIElement.SoundElement -> {
-            dynamicSoundfromAssets(mainActivity, element.src)
+            dynamicSoundfromAssets(mainActivity, element.src, dataItem)
         }
         is UIElement.YoutubeElement -> {
-            dynamicYoutube(modifier = if(element.weight > 0){Modifier.weight(element.weight.toFloat())} else {Modifier}, videoId = element.id)
+            dynamicYoutube(modifier = if(element.weight > 0){Modifier.weight(element.weight.toFloat())} else {Modifier}, videoId = element.id, dataItem = dataItem)
         }
         is UIElement.SceneElement -> {
-            dynamicScene(modifier = if(element.weight > 0){Modifier.weight(element.weight.toFloat())} else {Modifier}, element)
+            dynamicScene(
+                modifier = if(element.weight > 0){Modifier.weight(element.weight.toFloat())} else {Modifier},
+                element,
+                dataItem
+            )
         }
         is UIElement.SpacerElement -> {
             var mod = Modifier as Modifier
@@ -299,7 +333,12 @@ fun ColumnScope.RenderElement(mainActivity: MainActivity, navController: NavHost
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun renderColumn(mainActivity: MainActivity, navcontroller: NavHostController, element: UIElement.ColumnElement) {
+fun renderColumn(
+    mainActivity: MainActivity,
+    navcontroller: NavHostController,
+    element: UIElement.ColumnElement,
+    dataItem: Any
+) {
     Column (modifier = Modifier.padding(
         top = element.padding.top.dp,
         bottom = element.padding.bottom.dp,
@@ -307,14 +346,19 @@ fun renderColumn(mainActivity: MainActivity, navcontroller: NavHostController, e
         end = element.padding.right.dp
     )) {
         for (ele in element.uiElements) {
-            RenderElement(mainActivity, navcontroller, ele)
+            RenderElement(mainActivity, navcontroller, ele, dataItem)
         }
     }
 }
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun renderRow(mainActivity: MainActivity, navController: NavHostController, element: UIElement.RowElement) {
+fun renderRow(
+    mainActivity: MainActivity,
+    navController: NavHostController,
+    element: UIElement.RowElement,
+    dataItem: Any
+) {
     Row (horizontalArrangement = Arrangement.SpaceEvenly,
         modifier = Modifier.padding(
         top = element.padding.top.dp,
@@ -323,7 +367,7 @@ fun renderRow(mainActivity: MainActivity, navController: NavHostController, elem
         end = element.padding.right.dp
     )) {
         for (ele in element.uiElements) {
-            RenderElement(mainActivity, navController, ele)
+            RenderElement(mainActivity, navController, ele, dataItem)
         }
     }
 }
@@ -343,35 +387,56 @@ fun renderLazyColumn(mainActivity: MainActivity, navController: NavHostControlle
     if (isLoading) {
         CircularProgressIndicator()
     } else {
-        Text(text = "Placeholder")
-        /*
-        for (book in books.value) {
-            Row {
-                Image(
-                    painter = rememberImagePainter(book.src),
-                    contentDescription = null,
-                    modifier = Modifier.width(50.dp)
-                )
-                Spacer(modifier = Modifier.width(8.dp))
-                Column {
-                    Text(text = book.description)
-                    Spacer(modifier = Modifier.height(4.dp))
-                    Text(
-                        text = "Link",
-                        color = Color.Blue,
-                        modifier = Modifier.clickable {
-                            // Handle link click
-                            mainActivity.openWebPage(book.link)
-                        }
-                    )
-                }
+        for (dataItem in data.value) {
+            for (ele in element.uiElements) {
+                RenderElement(ele, mainActivity, navController, dataItem)
             }
-        }*/
+        }
     }
 }
+/*
+@Composable
+fun RenderElement(element: UIElement, mainActivity: MainActivity, navController: NavHostController, dataItem: Any) {
+    when (element) {
+        is UIElement.ColumnElement -> {
+            renderColumn(mainActivity, navController, element)
+        }
+        is UIElement.RowElement -> {
+            renderRow(mainActivity, navController, element, dataItem)
+        }
+        is UIElement.LazyColumnElement -> {
+            // this should not happen, LazyColumn inside a LazyColumn
+        }
+        is UIElement.TextElement -> {
+            renderText(element)
+        }
+        is UIElement.MarkdownElement -> {
+            renderMarkdown(modifier= Modifier, element)
+        }
+        is UIElement.ButtonElement -> {
+            renderButton(modifier = Modifier, element = element, mainActivity = mainActivity, navController= navController)
+        }
+        is UIElement.ImageElement -> {
+            dynamicImageFromAssets(modifier = Modifier, mainActivity, navcontroller = navController, filename = element.src, scale = element.scale, link= element.link)
+        }
+        is UIElement.VideoElement -> {
+            dynamicVideofromAssets(modifier= Modifier, mainActivity = mainActivity,element.src)
+        }
+        is UIElement.SoundElement -> {
+            dynamicSoundfromAssets(mainActivity, element.src)
+        }
+        is UIElement.YoutubeElement -> {
+            dynamicYoutube(modifier = Modifier, videoId = element.id)
+        }
+        is UIElement.SceneElement -> {
+            dynamicScene(modifier = Modifier, element = element)
+        }
+        else -> {}
+    }
+}*/
 
 @Composable
-fun renderText(element: UIElement.TextElement) {
+fun renderText(element: UIElement.TextElement, dataItem: Any) {
     Text(
         text = element.text.trim(),
         style = TextStyle(
@@ -496,7 +561,7 @@ fun ColumnScope.renderMarkdown(modifier: Modifier, element: UIElement.MarkdownEl
 }
 
 @Composable
-fun renderMarkdown(modifier: Modifier, element: UIElement.MarkdownElement) {
+fun renderMarkdown(modifier: Modifier, element: UIElement.MarkdownElement, dataItem: Any) {
     val context = LocalContext.current
     val mainActivity = context as MainActivity
     var cacheName by remember { mutableStateOf("") }
@@ -530,6 +595,13 @@ fun renderMarkdown(modifier: Modifier, element: UIElement.MarkdownElement) {
         }
     } else {
         text = element.text.trim()
+        if (text.startsWith("<") && text.endsWith(">")) {
+            val fieldName = text.substring(1, text.length - 1)
+            if (dataItem is Map<*, *> && fieldName.isNotEmpty()) {
+                val des = dataItem[fieldName] as? String
+                text = "$des"
+            }
+        }
         val parsedMarkdown = parseMarkdown(text)
         ClickableText(modifier = modifier,
             text = parsedMarkdown,
@@ -574,7 +646,8 @@ fun renderButton(
     modifier: Modifier = Modifier,
     element: UIElement.ButtonElement,
     mainActivity: MainActivity,
-    navController: NavHostController
+    navController: NavHostController,
+    dataItem: Any
 ) {
     var colors = buttonColors()
 
@@ -604,41 +677,42 @@ fun renderButton(
 fun RenderElement(
     element: UIElement,
     mainActivity: MainActivity,
-    navController: NavHostController
+    navController: NavHostController,
+    dataItem: Any
 ) {
     when (element) {
         is UIElement.ColumnElement -> {
-            renderColumn(mainActivity, navController, element)
+            renderColumn(mainActivity, navController, element, dataItem)
         }
         is UIElement.RowElement -> {
-            renderRow(mainActivity, navController, element)
+            renderRow(mainActivity, navController, element, dataItem)
         }
         is UIElement.LazyColumnElement -> {
             renderLazyColumn(mainActivity, navController, element)
         }
         is UIElement.TextElement -> {
-            renderText(element)
+            renderText(element, dataItem)
         }
         is UIElement.MarkdownElement -> {
-           renderMarkdown(modifier= Modifier, element)
+           renderMarkdown(modifier= Modifier, element, dataItem)
         }
         is UIElement.ButtonElement -> {
-            renderButton(modifier = Modifier, element = element, mainActivity = mainActivity, navController= navController)
+            renderButton(modifier = Modifier, element = element, mainActivity = mainActivity, navController= navController, dataItem)
         }
         is UIElement.ImageElement -> {
-            dynamicImageFromAssets(modifier = Modifier, mainActivity, navcontroller = navController, filename = element.src, scale = element.scale, link= element.link)
+            dynamicImageFromAssets(modifier = Modifier, mainActivity, navcontroller = navController, filename = element.src, scale = element.scale, link= element.link, dataItem)
         }
         is UIElement.VideoElement -> {
-            dynamicVideofromAssets(modifier= Modifier, mainActivity = mainActivity,element.src)
+            dynamicVideofromAssets(modifier = Modifier, mainActivity = mainActivity, filename = element.src, dataItem = dataItem)
         }
         is UIElement.SoundElement -> {
-            dynamicSoundfromAssets(mainActivity, element.src)
+            dynamicSoundfromAssets(mainActivity, element.src, dataItem)
         }
         is UIElement.YoutubeElement -> {
-            dynamicYoutube(modifier = Modifier, videoId = element.id)
+            dynamicYoutube(modifier = Modifier, videoId = element.id, dataItem = dataItem)
         }
         is UIElement.SceneElement -> {
-            dynamicScene(modifier = Modifier, element = element)
+            dynamicScene(modifier = Modifier, element = element, dataItem)
         }
         else -> {}
     }
@@ -681,7 +755,15 @@ fun handleButtonClick(
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun dynamicImageFromAssets(modifier: Modifier = Modifier, mainActivity: MainActivity, navcontroller: NavHostController, filename: String, scale: String, link: String) {
+fun dynamicImageFromAssets(
+    modifier: Modifier = Modifier,
+    mainActivity: MainActivity,
+    navcontroller: NavHostController,
+    filename: String,
+    scale: String,
+    link: String,
+    dataItem: Any
+) {
     var cacheName by remember { mutableStateOf("") }
 
     LaunchedEffect(Unit) {
@@ -717,7 +799,7 @@ fun dynamicImageFromAssets(modifier: Modifier = Modifier, mainActivity: MainActi
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun dynamicSoundfromAssets(mainActivity: MainActivity, filename: String) {
+fun dynamicSoundfromAssets(mainActivity: MainActivity, filename: String, dataItem: Any) {
     var cacheName by remember { mutableStateOf("") }
 
     LaunchedEffect(Unit) {
@@ -751,7 +833,7 @@ fun dynamicSoundfromAssets(mainActivity: MainActivity, filename: String) {
 }
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun dynamicVideofromAssets(modifier: Modifier = Modifier, mainActivity: MainActivity, filename: String, height: Int = 200) {
+fun dynamicVideofromAssets(modifier: Modifier = Modifier, mainActivity: MainActivity, filename: String, dataItem: Any, height: Int = 200) {
     var cacheName by remember { mutableStateOf("") }
     if(filename.startsWith("http")) {
         cacheName = filename
@@ -796,7 +878,7 @@ fun dynamicVideofromAssets(modifier: Modifier = Modifier, mainActivity: MainActi
 }
 
 @Composable
-fun dynamicYoutube(modifier: Modifier = Modifier, videoId: String, height: Int = 200) {
+fun dynamicYoutube(modifier: Modifier = Modifier, videoId: String, height: Int = 200, dataItem: Any) {
     val ctx = LocalContext.current
 
     AndroidView(
@@ -834,7 +916,7 @@ fun loadImageFromCache(context: Context, filename: String): Bitmap? {
 }
 
 @Composable
-fun dynamicScene(modifier: Modifier = Modifier, element: UIElement.SceneElement) {
+fun dynamicScene(modifier: Modifier = Modifier, element: UIElement.SceneElement, dataItem: Any) {
     val context = LocalContext.current
     val mainActivity = context as MainActivity
     var modelCacheName by remember { mutableStateOf("") }
