@@ -331,7 +331,8 @@ fun renderRow(mainActivity: MainActivity, navController: NavHostController, elem
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun renderLazyColumn(mainActivity: MainActivity, navController: NavHostController, element: UIElement.LazyColumnElement) {
-    println("renderLazyColumn: ${element.url}")
+    val url = element.url
+
     for (ele in element.uiElements) {
         RenderElement(ele, mainActivity, navController)
     }
