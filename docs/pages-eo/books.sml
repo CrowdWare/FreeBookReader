@@ -22,7 +22,7 @@ Page {
                 padding: "8"
               
                 Image { 
-                    src: "<src>" 
+                    src: "<pictureurl>" 
                     width: 50
                     weight: 1
                     link: "<link>"
