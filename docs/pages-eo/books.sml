@@ -8,10 +8,10 @@ Page {
                         
         Markdown {
             color: "#4C9BD9"
-            text: "# Bücher"
+            text: "# Libroj."
         }
         Markdown {
-            text: "Hier eine Liste der derzeit verfügbaren Bücher."
+            text: "Jen listo de la nuntempe disponeblaj libroj."
         }
         Spacer {amount: 8}
 

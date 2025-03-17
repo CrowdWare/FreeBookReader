@@ -42,7 +42,7 @@ Deployment {
   File { path: "about.sml" time: "2024.11.28 15.52.46" type: "page-en" }
   File { path: "home.sml" time: "2024.12.07 12.34.28" type: "page-en" }
   File { path: "about.sml" time: "2024.12.06 08.17.22" type: "page-de" }
-  File { path: "books.sml" time: "2025.03.15 19.57.00" type: "page-de" }
+  File { path: "books.sml" time: "2025.03.17 10.18.48" type: "page-de" }
   File { path: "home.sml" time: "2024.12.06 08.05.23" type: "page-de" }
   File { path: "about.sml" time: "2024.11.28 15.54.03" type: "page-es" }
   File { path: "home.sml" time: "2024.12.07 12.34.43" type: "page-es" }
@@ -51,7 +51,7 @@ Deployment {
   File { path: "about.sml" time: "2024.11.28 15.54.06" type: "page-fr" }
   File { path: "home.sml" time: "2024.12.07 12.34.50" type: "page-fr" }
   File { path: "about.sml" time: "2024.11.28 15.53.59" type: "page-eo" }
-  File { path: "books.sml" time: "2025.03.17 08.54.35" type: "page-eo" }
+  File { path: "books.sml" time: "2025.03.17 10.19.19" type: "page-eo" }
   File { path: "home.sml" time: "2025.03.15 19.58.01" type: "page-eo" }
 
 
