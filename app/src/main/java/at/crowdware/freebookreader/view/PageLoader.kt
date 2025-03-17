@@ -766,17 +766,19 @@ fun dynamicImageFromAssets(
 ) {
     var cacheName by remember { mutableStateOf("") }
     var fileName = filename
+    var isExternal  = false
     if (filename.startsWith("<") && filename.endsWith(">")) {
         val fieldName = filename.substring(1, filename.length - 1)
         if (dataItem is Map<*, *> && fieldName.isNotEmpty()) {
             val url = dataItem[fieldName] as? String
             fileName = "$url"
+            isExternal = true
         }
     }
 
     LaunchedEffect(Unit) {
         cacheName = withContext(Dispatchers.IO) {
-            mainActivity.contentLoader.loadAsset(fileName, "images")
+            mainActivity.contentLoader.loadAsset(fileName, "images", isExternal)
         }
     }
     if (cacheName.isNotEmpty()) {

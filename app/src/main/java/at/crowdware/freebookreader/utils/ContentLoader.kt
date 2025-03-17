@@ -110,33 +110,54 @@ class ContentLoader {
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    suspend fun loadAsset(name: String, subdir: String): String {
-        var fileContent: ByteArray? = null
-        val url = "$appUrl/$subdir/$name"
+    suspend fun loadAsset(name: String, subdir: String, isExternal: Boolean = false): String {
+        //var fileContent: ByteArray? = null
         if(app == null) {
             return ""
         }
-        val result = app!!.deployment.files.find { it.path == "$name" }
-        if (result == null) {
-            return ""
-        }
-        val fileName = ("ContentCache/" + appUrl.substringAfter("://") + "/$subdir/").replace(".", "_").replace(":", "_") + "$name"
-        val file = File(context.filesDir, fileName)
-        var ret = true
-        if (file.exists()) {
-            val lastModifiedMillis = file.lastModified()
-            val lastModifiedDateTime = LocalDateTime.ofInstant(Instant.ofEpochMilli(lastModifiedMillis), ZoneId.systemDefault())
-            if (result.time.isAfter(lastModifiedDateTime)) {
-                // web server version is newer
+        val url = "$appUrl/$subdir/$name"
+        if (isExternal) {
+            // in this case name is an URL
+            val fileName = name.substringAfterLast("/")
+            val storageName = ("ContentCache/" + appUrl.substringAfter("://") + "/$subdir/").replace(".", "_")
+                    .replace(":", "_") + fileName
+            val file = File(context.filesDir, storageName)
+            var ret = true
+            if (!file.exists()) {
+                ret = loadAndCacheAsset(name, storageName, LocalDateTime.now())
+            }
+            return if (ret)
+                storageName
+            else
+                ""
+        } else {
+            val result = app!!.deployment.files.find { it.path == name }
+            if (result == null) {
+                return ""
+            }
+            val fileName =
+                ("ContentCache/" + appUrl.substringAfter("://") + "/$subdir/").replace(".", "_")
+                    .replace(":", "_") + name
+            val file = File(context.filesDir, fileName)
+            var ret = true
+            if (file.exists()) {
+                val lastModifiedMillis = file.lastModified()
+                val lastModifiedDateTime = LocalDateTime.ofInstant(
+                    Instant.ofEpochMilli(lastModifiedMillis),
+                    ZoneId.systemDefault()
+                )
+                if (result.time.isAfter(lastModifiedDateTime)) {
+                    // web server version is newer
+                    ret = loadAndCacheAsset(url, fileName, result.time)
+                }
+            } else {
                 ret = loadAndCacheAsset(url, fileName, result.time)
             }
-        } else {
-            ret = loadAndCacheAsset(url, fileName, result.time)
+            return if (ret)
+                fileName
+            else
+                ""
         }
-        return if (ret)
-            fileName
-        else
-            ""
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
