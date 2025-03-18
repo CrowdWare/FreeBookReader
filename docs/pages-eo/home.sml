@@ -16,10 +16,11 @@ Page {
                 weight:1
                  Image { 
                     src: "<pictureurl>" 
-                    width: 90
+                    width: 120
                     link: "<link>"
                 }
             }
+            Spacer {amount: 8}
         }  
 
         Spacer { weight: 1 }

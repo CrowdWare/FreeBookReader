@@ -202,10 +202,10 @@ fun RenderPage(
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun RowScope.RenderElement(mainActivity: MainActivity, navController: NavHostController, element: UIElement, dataItem: Any) {
+fun RowScope.RenderElement(mainActivity: MainActivity, navController: NavHostController, element: UIElement, dataItem: Any, isInLazy: Boolean = false) {
     when(element) {
         is UIElement.ColumnElement -> {
-            renderColumn(mainActivity, navController, if(element.weight > 0) Modifier.weight(element.weight.toFloat()) else Modifier, element, dataItem)
+            renderColumn(mainActivity, navController, if(element.weight > 0) Modifier.weight(element.weight.toFloat()) else Modifier, element, dataItem, isInLazy = isInLazy)
         }
         is UIElement.RowElement -> {
             renderRow(mainActivity, navController, element, dataItem)
@@ -229,15 +229,27 @@ fun RowScope.RenderElement(mainActivity: MainActivity, navController: NavHostCon
             )
         }
         is UIElement.ImageElement -> {
-            dynamicImageFromAssets(
-                modifier = if(element.weight > 0) Modifier.weight(element.weight.toFloat()) else Modifier,
-                mainActivity = mainActivity,
-                navcontroller = navController,
-                filename = element.src,
-                scale = element.scale,
-                link = element.link,
-                dataItem = dataItem
-            )
+            if (isInLazy) {
+                dynamicImageFromAssets(
+                    modifier = Modifier.width(element.width.dp),
+                    mainActivity,
+                    navcontroller = navController,
+                    filename = element.src,
+                    scale = element.scale,
+                    link = element.link,
+                    dataItem
+                )
+            } else {
+                dynamicImageFromAssets(
+                    modifier = if (element.weight > 0) Modifier.weight(element.weight.toFloat()) else Modifier,
+                    mainActivity = mainActivity,
+                    navcontroller = navController,
+                    filename = element.src,
+                    scale = element.scale,
+                    link = element.link,
+                    dataItem = dataItem
+                )
+            }
         }
         is UIElement.VideoElement -> {
             dynamicVideofromAssets(modifier = if(element.weight > 0) Modifier.weight(element.weight.toFloat()) else Modifier, mainActivity = mainActivity, filename = element.src, dataItem = dataItem)
@@ -269,13 +281,13 @@ fun RowScope.RenderElement(mainActivity: MainActivity, navController: NavHostCon
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun ColumnScope.RenderElement(mainActivity: MainActivity, navController: NavHostController, element: UIElement, dataItem: Any) {
+fun ColumnScope.RenderElement(mainActivity: MainActivity, navController: NavHostController, element: UIElement, dataItem: Any, isInLazy: Boolean = false) {
     when (element) {
         is UIElement.ColumnElement -> {
-            renderColumn(mainActivity, navController, if(element.weight > 0) Modifier.weight(element.weight.toFloat()) else Modifier, element, dataItem)
+            renderColumn(mainActivity, navController, if(element.weight > 0) Modifier.weight(element.weight.toFloat()) else Modifier, element, dataItem, isInLazy = isInLazy)
         }
         is UIElement.RowElement -> {
-            renderRow(mainActivity, navController, element, dataItem)
+            renderRow(mainActivity, navController, element, dataItem, isInLazy = isInLazy)
         }
         is UIElement.LazyColumnElement -> {
             renderLazyColumn(mainActivity,navController,element)
@@ -299,15 +311,31 @@ fun ColumnScope.RenderElement(mainActivity: MainActivity, navController: NavHost
             )
         }
         is UIElement.ImageElement -> {
-            dynamicImageFromAssets(
-                modifier = if(element.weight > 0){Modifier.weight(element.weight.toFloat())} else {Modifier},
-                mainActivity = mainActivity,
-                navcontroller = navController,
-                filename = element.src,
-                scale =element.scale,
-                link = element.link,
-                dataItem = dataItem
-            )
+            if (isInLazy) {
+                dynamicImageFromAssets(
+                    modifier = Modifier.width(element.width.dp),
+                    mainActivity,
+                    navcontroller = navController,
+                    filename = element.src,
+                    scale = element.scale,
+                    link = element.link,
+                    dataItem
+                )
+            } else {
+                dynamicImageFromAssets(
+                    modifier = if (element.weight > 0) {
+                        Modifier.weight(element.weight.toFloat())
+                    } else {
+                        Modifier
+                    },
+                    mainActivity = mainActivity,
+                    navcontroller = navController,
+                    filename = element.src,
+                    scale = element.scale,
+                    link = element.link,
+                    dataItem = dataItem
+                )
+            }
         }
         is UIElement.VideoElement -> {
             dynamicVideofromAssets(modifier = if(element.weight > 0){Modifier.weight(element.weight.toFloat())} else {Modifier}, mainActivity = mainActivity, filename = element.src, dataItem = dataItem)
@@ -344,7 +372,8 @@ fun renderColumn(
     navcontroller: NavHostController,
     modifier: Modifier,
     element: UIElement.ColumnElement,
-    dataItem: Any
+    dataItem: Any,
+    isInLazy: Boolean
 ) {
     Column (modifier = modifier.padding(
         top = element.padding.top.dp,
@@ -353,7 +382,7 @@ fun renderColumn(
         end = element.padding.right.dp
     )) {
         for (ele in element.uiElements) {
-            RenderElement(mainActivity, navcontroller, ele, dataItem)
+            RenderElement(mainActivity = mainActivity, navController = navcontroller, element = ele, dataItem = dataItem, isInLazy = isInLazy)
         }
     }
 }
@@ -364,7 +393,8 @@ fun renderRow(
     mainActivity: MainActivity,
     navController: NavHostController,
     element: UIElement.RowElement,
-    dataItem: Any
+    dataItem: Any,
+    isInLazy: Boolean = false
 ) {
     Row (horizontalArrangement = Arrangement.SpaceEvenly,
         modifier = Modifier.padding(
@@ -374,7 +404,7 @@ fun renderRow(
         end = element.padding.right.dp
     )) {
         for (ele in element.uiElements) {
-            RenderElement(mainActivity, navController, ele, dataItem)
+            RenderElement(mainActivity, navController, ele, dataItem, isInLazy = isInLazy)
         }
     }
 }
@@ -681,7 +711,7 @@ fun RenderElement(
 ) {
     when (element) {
         is UIElement.ColumnElement -> {
-            renderColumn(mainActivity, navController, Modifier, element, dataItem)
+            renderColumn(mainActivity, navController, Modifier, element, dataItem, isInLazy = isInLazy)
         }
         is UIElement.RowElement -> {
             renderRow(mainActivity, navController, element, dataItem)
