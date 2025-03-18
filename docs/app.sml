@@ -52,7 +52,7 @@ Deployment {
   File { path: "home.sml" time: "2024.12.07 12.34.50" type: "page-fr" }
   File { path: "about.sml" time: "2024.11.28 15.53.59" type: "page-eo" }
   File { path: "books.sml" time: "2025.03.17 16.32.42" type: "page-eo" }
-  File { path: "home.sml" time: "2025.03.15 19.58.01" type: "page-eo" }
+  File { path: "home.sml" time: "2025.03.18 01.51.32" type: "page-eo" }
 
 
 
