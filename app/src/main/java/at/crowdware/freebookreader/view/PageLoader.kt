@@ -46,6 +46,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.verticalScroll
@@ -391,9 +394,16 @@ fun renderLazyColumn(mainActivity: MainActivity, navController: NavHostControlle
     if (isLoading) {
         CircularProgressIndicator()
     } else {
-        for (dataItem in data.value) {
+        /*for (dataItem in data.value) {
             for (ele in element.uiElements) {
                 RenderElement(ele, mainActivity, navController, dataItem)
+            }
+        }*/
+        LazyColumn {
+            items(data.value, key = { it.hashCode() }) { dataItem -> // Explizite Liste verwenden
+                element.uiElements.forEach { ele ->
+                    RenderElement(element = ele, mainActivity = mainActivity, navController = navController, dataItem = dataItem, isInLazy = true)
+                }
             }
         }
     }
@@ -414,9 +424,11 @@ fun renderLazyRow(mainActivity: MainActivity, navController: NavHostController, 
     if (isLoading) {
         CircularProgressIndicator()
     } else {
-        for (dataItem in data.value) {
-            for (ele in element.uiElements) {
-                RenderElement(ele, mainActivity, navController, dataItem)
+        LazyRow {
+            items(data.value, key = { it.hashCode() }) { dataItem -> // Explizite Liste verwenden
+                element.uiElements.forEach { ele ->
+                    RenderElement(element = ele, mainActivity = mainActivity, navController = navController, dataItem = dataItem, isInLazy = true)
+                }
             }
         }
     }
@@ -664,7 +676,8 @@ fun RenderElement(
     element: UIElement,
     mainActivity: MainActivity,
     navController: NavHostController,
-    dataItem: Any
+    dataItem: Any,
+    isInLazy: Boolean = false
 ) {
     when (element) {
         is UIElement.ColumnElement -> {
@@ -676,6 +689,9 @@ fun RenderElement(
         is UIElement.LazyColumnElement -> {
             renderLazyColumn(mainActivity, navController, element)
         }
+        is UIElement.LazyRowElement -> {
+            renderLazyRow(mainActivity, navController, element)
+        }
         is UIElement.TextElement -> {
             renderText(element, dataItem)
         }
@@ -686,7 +702,28 @@ fun RenderElement(
             renderButton(modifier = Modifier.fillMaxWidth(), element = element, mainActivity = mainActivity, navController= navController, dataItem)
         }
         is UIElement.ImageElement -> {
-            dynamicImageFromAssets(modifier = Modifier, mainActivity, navcontroller = navController, filename = element.src, scale = element.scale, link= element.link, dataItem)
+            if (isInLazy) {
+                dynamicImageFromAssets(
+                    modifier = Modifier.width(element.width.dp),
+                    mainActivity,
+                    navcontroller = navController,
+                    filename = element.src,
+                    scale = element.scale,
+                    link = element.link,
+                    dataItem
+                )
+            } else {
+                dynamicImageFromAssets(
+                    modifier = Modifier,
+                    mainActivity,
+                    navcontroller = navController,
+                    filename = element.src,
+                    scale = element.scale,
+                    link = element.link,
+                    dataItem
+                )
+
+            }
         }
         is UIElement.VideoElement -> {
             dynamicVideofromAssets(modifier = Modifier, mainActivity = mainActivity, filename = element.src, dataItem = dataItem)
@@ -783,7 +820,7 @@ fun dynamicImageFromAssets(
                     "none" -> ContentScale.None
                     else -> ContentScale.Fit
                 },
-                modifier = modifier.fillMaxWidth().clickable { handleButtonClick(link, mainActivity = mainActivity, navcontroller) }
+                modifier = modifier.clickable { handleButtonClick(link, mainActivity = mainActivity, navcontroller) }
             )
       } else {
           Text(text = "Image [$filename] not found")

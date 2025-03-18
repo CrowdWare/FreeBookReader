@@ -13,7 +13,6 @@ Page {
             url: "https://artanidos.pythonanywhere.com/crowdware/items?type=book&filter=favourite"
 
             Column {
-                weight: 1
                  Image { 
                     src: "<pictureurl>" 
                     width: 90
