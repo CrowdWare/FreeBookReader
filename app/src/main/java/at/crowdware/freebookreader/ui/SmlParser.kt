@@ -314,8 +314,17 @@ fun parseNestedElements(nestedElements: List<Any>, elements: MutableList<UIEleme
                     }
                     "LazyColumn" -> {
                         // TODO: Cached SML file are not updated
-                        println("LazyColumn")
+
                         val lc = UIElement.LazyColumnElement(
+                            url = (properties["url"] as? PropertyValue.StringValue)?.value ?: "",
+                        )
+                        parseNestedElements(extractChildElements(element), lc.uiElements as MutableList<UIElement>)
+                        elements.add(lc)
+                    }
+                    "LazyRow" -> {
+                        // TODO: Cached SML file are not updated
+
+                        val lc = UIElement.LazyRowElement(
                             url = (properties["url"] as? PropertyValue.StringValue)?.value ?: "",
                         )
                         parseNestedElements(extractChildElements(element), lc.uiElements as MutableList<UIElement>)

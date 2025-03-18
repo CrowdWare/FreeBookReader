@@ -202,7 +202,7 @@ fun RenderPage(
 fun RowScope.RenderElement(mainActivity: MainActivity, navController: NavHostController, element: UIElement, dataItem: Any) {
     when(element) {
         is UIElement.ColumnElement -> {
-            renderColumn(mainActivity, navController, element, dataItem)
+            renderColumn(mainActivity, navController, if(element.weight > 0) Modifier.weight(element.weight.toFloat()) else Modifier, element, dataItem)
         }
         is UIElement.RowElement -> {
             renderRow(mainActivity, navController, element, dataItem)
@@ -269,13 +269,16 @@ fun RowScope.RenderElement(mainActivity: MainActivity, navController: NavHostCon
 fun ColumnScope.RenderElement(mainActivity: MainActivity, navController: NavHostController, element: UIElement, dataItem: Any) {
     when (element) {
         is UIElement.ColumnElement -> {
-            renderColumn(mainActivity, navController, element, dataItem)
+            renderColumn(mainActivity, navController, if(element.weight > 0) Modifier.weight(element.weight.toFloat()) else Modifier, element, dataItem)
         }
         is UIElement.RowElement -> {
             renderRow(mainActivity, navController, element, dataItem)
         }
         is UIElement.LazyColumnElement -> {
             renderLazyColumn(mainActivity,navController,element)
+        }
+        is UIElement.LazyRowElement -> {
+            renderLazyRow(mainActivity,navController,element)
         }
         is UIElement.TextElement -> {
             renderText(element, dataItem)
@@ -336,10 +339,11 @@ fun ColumnScope.RenderElement(mainActivity: MainActivity, navController: NavHost
 fun renderColumn(
     mainActivity: MainActivity,
     navcontroller: NavHostController,
+    modifier: Modifier,
     element: UIElement.ColumnElement,
     dataItem: Any
 ) {
-    Column (modifier = Modifier.padding(
+    Column (modifier = modifier.padding(
         top = element.padding.top.dp,
         bottom = element.padding.bottom.dp,
         start = element.padding.left.dp,
@@ -375,6 +379,29 @@ fun renderRow(
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun renderLazyColumn(mainActivity: MainActivity, navController: NavHostController, element: UIElement.LazyColumnElement) {
+    val url = element.url
+    val data = remember { mutableStateOf<List<Any>>(emptyList()) }
+    var isLoading by remember { mutableStateOf(true) }
+
+    LaunchedEffect(url) {
+        data.value = mainActivity.contentLoader.fetchJsonData(url)
+        isLoading = false
+    }
+
+    if (isLoading) {
+        CircularProgressIndicator()
+    } else {
+        for (dataItem in data.value) {
+            for (ele in element.uiElements) {
+                RenderElement(ele, mainActivity, navController, dataItem)
+            }
+        }
+    }
+}
+
+@RequiresApi(Build.VERSION_CODES.O)
+@Composable
+fun renderLazyRow(mainActivity: MainActivity, navController: NavHostController, element: UIElement.LazyColumnElement) {
     val url = element.url
     val data = remember { mutableStateOf<List<Any>>(emptyList()) }
     var isLoading by remember { mutableStateOf(true) }
@@ -641,7 +668,7 @@ fun RenderElement(
 ) {
     when (element) {
         is UIElement.ColumnElement -> {
-            renderColumn(mainActivity, navController, element, dataItem)
+            renderColumn(mainActivity, navController, Modifier, element, dataItem)
         }
         is UIElement.RowElement -> {
             renderRow(mainActivity, navController, element, dataItem)

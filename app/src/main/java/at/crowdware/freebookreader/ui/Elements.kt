@@ -161,6 +161,10 @@ sealed class UIElement {
         val url: String,
         val uiElements: MutableList<UIElement> = mutableListOf()
     ) : UIElement()
+    data class LazyRowElement(
+        val url: String,
+        val uiElements: MutableList<UIElement> = mutableListOf()
+    ) : UIElement()
 }
 
 data class Padding(val top: Int, val right: Int, val bottom: Int, val left: Int)
