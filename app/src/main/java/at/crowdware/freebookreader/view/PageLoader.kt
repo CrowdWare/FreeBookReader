@@ -218,7 +218,7 @@ fun RowScope.RenderElement(mainActivity: MainActivity, navController: NavHostCon
         }
         is UIElement.ButtonElement -> {
             renderButton(
-                modifier = if(element.weight > 0) Modifier.weight(element.weight.toFloat()) else Modifier,
+                modifier = if(element.weight > 0) Modifier.weight(element.weight.toFloat()) else Modifier.weight(1f),
                 element = element,
                 mainActivity = mainActivity,
                 navController = navController,
@@ -285,7 +285,7 @@ fun ColumnScope.RenderElement(mainActivity: MainActivity, navController: NavHost
         }
         is UIElement.ButtonElement -> {
             renderButton(
-                modifier= Modifier,
+                modifier= Modifier.fillMaxWidth(),
                 element = element,
                 mainActivity = mainActivity,
                 navController = navController,
@@ -394,46 +394,6 @@ fun renderLazyColumn(mainActivity: MainActivity, navController: NavHostControlle
         }
     }
 }
-/*
-@Composable
-fun RenderElement(element: UIElement, mainActivity: MainActivity, navController: NavHostController, dataItem: Any) {
-    when (element) {
-        is UIElement.ColumnElement -> {
-            renderColumn(mainActivity, navController, element)
-        }
-        is UIElement.RowElement -> {
-            renderRow(mainActivity, navController, element, dataItem)
-        }
-        is UIElement.LazyColumnElement -> {
-            // this should not happen, LazyColumn inside a LazyColumn
-        }
-        is UIElement.TextElement -> {
-            renderText(element)
-        }
-        is UIElement.MarkdownElement -> {
-            renderMarkdown(modifier= Modifier, element)
-        }
-        is UIElement.ButtonElement -> {
-            renderButton(modifier = Modifier, element = element, mainActivity = mainActivity, navController= navController)
-        }
-        is UIElement.ImageElement -> {
-            dynamicImageFromAssets(modifier = Modifier, mainActivity, navcontroller = navController, filename = element.src, scale = element.scale, link= element.link)
-        }
-        is UIElement.VideoElement -> {
-            dynamicVideofromAssets(modifier= Modifier, mainActivity = mainActivity,element.src)
-        }
-        is UIElement.SoundElement -> {
-            dynamicSoundfromAssets(mainActivity, element.src)
-        }
-        is UIElement.YoutubeElement -> {
-            dynamicYoutube(modifier = Modifier, videoId = element.id)
-        }
-        is UIElement.SceneElement -> {
-            dynamicScene(modifier = Modifier, element = element)
-        }
-        else -> {}
-    }
-}*/
 
 @Composable
 fun renderText(element: UIElement.TextElement, dataItem: Any) {
@@ -663,9 +623,8 @@ fun renderButton(
 
     Button(
         modifier = modifier
-            .fillMaxWidth()
-            .then(if(element.width > 0)Modifier.width(element.width.dp)else Modifier)
-            .then(if(element.height > 0)Modifier.height(element.height.dp)else Modifier),
+            .then(if(element.width > 0)Modifier.width(element.width.dp) else Modifier)
+            .then(if(element.height > 0)Modifier.height(element.height.dp) else Modifier),
         colors = colors,
         onClick =  { handleButtonClick(element.link, mainActivity, navController) }) {
         Text(text = element.label)
@@ -697,7 +656,7 @@ fun RenderElement(
            renderMarkdown(modifier= Modifier, element, dataItem)
         }
         is UIElement.ButtonElement -> {
-            renderButton(modifier = Modifier, element = element, mainActivity = mainActivity, navController= navController, dataItem)
+            renderButton(modifier = Modifier.fillMaxWidth(), element = element, mainActivity = mainActivity, navController= navController, dataItem)
         }
         is UIElement.ImageElement -> {
             dynamicImageFromAssets(modifier = Modifier, mainActivity, navcontroller = navController, filename = element.src, scale = element.scale, link= element.link, dataItem)

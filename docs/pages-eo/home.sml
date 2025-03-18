@@ -7,37 +7,15 @@ Page {
                         
         Markdown {
             color: "#4C9BD9"
-            text: "# Bonvenon"
+            text: "# Willkommen"
           }
-          Markdown { 
-              fontSize: 16
-            text :"
-                Ni ĝojas, ke vi uzas la FreeBook-solvon.
-                Bonvolu noti, ke ĉi tio estas ankoraŭ
-                frua versio, kiu eble enhavas
-                kelkajn erarojn.
-                La enhavo de ĉi tiu apo estis kreita per la
-                **FreeBookDesigner**, aplikaĵo por la
-                labortablo."
-        }
-        Spacer { amount: 16 }
-        Markdown {
-            color: "#4C9BD9"
-            text: "### FreeBookDesigner"
-         }
-        Spacer { amount: 8 }
-        Image { src: "desktop.png" }
-        Spacer { amount: 16 }
-        Markdown {
-            fontSize: 16
-            text: "Komencu nun, kreu E-libron aŭ
-                eĉ apon, kaj krei enhavon por
-                aliaj homoj, kiuj helpos vin
-                proksimiĝi al viaj revoj."}
+                    
 
         Spacer { weight: 1 }
-        Button { label: "Bücher" link: "page:app.books"}
-        Spacer { amount:  4}
-        Button { label: "Pri FreeBook" link: "page:app.about"}
+        Row {       
+            Button { label: "About FreeBook" link: "page:app.about"}
+            Spacer { amount: 8}
+            Button { label: "Bücher" link: "page:app.books" }            
+        }
     }
 }
