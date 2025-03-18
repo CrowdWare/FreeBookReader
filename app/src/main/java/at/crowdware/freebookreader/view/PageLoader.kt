@@ -401,7 +401,7 @@ fun renderLazyColumn(mainActivity: MainActivity, navController: NavHostControlle
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun renderLazyRow(mainActivity: MainActivity, navController: NavHostController, element: UIElement.LazyColumnElement) {
+fun renderLazyRow(mainActivity: MainActivity, navController: NavHostController, element: UIElement.LazyRowElement) {
     val url = element.url
     val data = remember { mutableStateOf<List<Any>>(emptyList()) }
     var isLoading by remember { mutableStateOf(true) }
