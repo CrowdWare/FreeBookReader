@@ -20,16 +20,7 @@
 package at.crowdware.freebookreader
 
 import android.annotation.SuppressLint
-import android.content.Context
-import android.content.Intent
-import android.net.Uri
-import android.os.Build
-import android.os.Bundle
 import android.view.View
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.systemBarsPadding
@@ -42,43 +33,26 @@ import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import at.crowdware.nocodelibmobile.logic.LocaleManager
-import at.crowdware.nocodelibmobile.utils.App
-import at.crowdware.freebookreader.ui.theme.FreeBookReaderTheme
-import at.crowdware.freebookreader.ui.widgets.NavigationItem
-import at.crowdware.freebookreader.ui.widgets.NavigationView
-import at.crowdware.freebookreader.view.LoadPage
 import at.crowdware.nocodelibmobile.BaseComposeActivity
-import com.google.android.filament.utils.Utils
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import java.io.File
-import java.nio.ByteBuffer
+import at.crowdware.nocodelibmobile.logic.LocaleManager
+import at.crowdware.nocodelibmobile.ui.theme.NoCodeLibMobileTheme
+import at.crowdware.nocodelibmobile.ui.widgets.NavigationItem
+import at.crowdware.nocodelibmobile.ui.widgets.NavigationView
+import at.crowdware.nocodelibmobile.utils.LoadPage
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 class MainActivity : BaseComposeActivity() {
-    //val contentLoader = ContentLoader()
-    //private var app: App? by mutableStateOf(null)
-    //private var loading by mutableStateOf(false)
-    //var cameraDistance: Float = 0F
 
-    companion object {
-        init {
-            Utils.init()
-        }
-
-        const val url = "https://crowdware.github.io/FreeBookReader/app.sml"
+    override fun getBaseUrl(): String {
+        return "https://crowdware.github.io/FreeBookReader/app.sml"
     }
 
     @Composable
@@ -89,10 +63,11 @@ class MainActivity : BaseComposeActivity() {
                         or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                 )
 
-        FreeBookReaderTheme(app!!.theme) {
+        NoCodeLibMobileTheme(app!!.theme) {
             LocaleManager.init(applicationContext, resources)
-
+            println("AppId: ${app!!.id}")
             if (app!!.id == "at.crowdware.freebookreader") {
+                println("we are in")
                 // in the local app we use Scaffold and the navigation drawer
                 Scaffold(modifier = Modifier.fillMaxSize()) { _ ->
                     val list = mutableListOf(
@@ -145,6 +120,7 @@ class MainActivity : BaseComposeActivity() {
                             )
                         }
                     }
+                    println("about to draw navi")
                     NavigationView(list, context)
                 }
             } else {

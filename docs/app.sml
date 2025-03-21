@@ -1,7 +1,7 @@
 App {
 	name: "MyApp"
 	icon: "icon.png"
-	id: "at.crowdware.nocodelibmobile"
+	id: "at.crowdware.freebookreader"
 	smlVersion: "1.1"
 
   Theme {
@@ -40,19 +40,19 @@ App {
 // deployment start - don't edit here
 Deployment {
   File { path: "about.sml" time: "2024.11.28 15.52.46" type: "page-en" }
-  File { path: "home.sml" time: "2024.12.07 12.34.28" type: "page-en" }
+  File { path: "home.sml" time: "2025.03.21 08.22.31" type: "page-en" }
   File { path: "about.sml" time: "2024.12.06 08.17.22" type: "page-de" }
-  File { path: "books.sml" time: "2025.03.17 10.18.48" type: "page-de" }
-  File { path: "home.sml" time: "2024.12.06 08.05.23" type: "page-de" }
+  File { path: "books.sml" time: "2025.03.21 08.22.31" type: "page-de" }
+  File { path: "home.sml" time: "2025.03.21 08.22.31" type: "page-de" }
   File { path: "about.sml" time: "2024.11.28 15.54.03" type: "page-es" }
-  File { path: "home.sml" time: "2024.12.07 12.34.43" type: "page-es" }
+  File { path: "home.sml" time: "2025.03.21 08.22.31" type: "page-es" }
   File { path: "about.sml" time: "2024.11.28 15.54.10" type: "page-pt" }
-  File { path: "home.sml" time: "2024.12.07 12.34.58" type: "page-pt" }
+  File { path: "home.sml" time: "2025.03.21 08.22.31" type: "page-pt" }
   File { path: "about.sml" time: "2024.11.28 15.54.06" type: "page-fr" }
-  File { path: "home.sml" time: "2024.12.07 12.34.50" type: "page-fr" }
+  File { path: "home.sml" time: "2025.03.21 08.22.31" type: "page-fr" }
   File { path: "about.sml" time: "2024.11.28 15.53.59" type: "page-eo" }
-  File { path: "books.sml" time: "2025.03.17 16.32.42" type: "page-eo" }
-  File { path: "home.sml" time: "2025.03.18 03.35.01" type: "page-eo" }
+  File { path: "books.sml" time: "2025.03.21 08.22.31" type: "page-eo" }
+  File { path: "home.sml" time: "2025.03.21 08.22.31" type: "page-eo" }
 
 
 
