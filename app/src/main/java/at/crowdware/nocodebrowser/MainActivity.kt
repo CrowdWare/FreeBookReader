@@ -1,23 +1,23 @@
 /****************************************************************************
  * Copyright (C) 2025 CrowdWare
  *
- * This file is part of FreeBookReader.
+ * This file is part of NoCodeBrowser.
  *
- *  FreeBookReader is free software: you can redistribute it and/or modify
+ *  NoCodeBrowser is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
  *  (at your option) any later version.
  *
- *  FreeBookReader is distributed in the hope that it will be useful,
+ *  NoCodeBrowser is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY without even the implied warranty of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *  GNU General Public License for more details.
  *
  *  You should have received a copy of the GNU General Public License
- *  along with FreeBookReader.  If not, see <http://www.gnu.org/licenses/>.
+ *  along with NoCodeBrowser.  If not, see <http://www.gnu.org/licenses/>.
  *
  ****************************************************************************/
-package at.crowdware.freebookreader
+package at.crowdware.nocodebrowser
 
 import android.annotation.SuppressLint
 import android.view.View
@@ -52,7 +52,7 @@ import at.crowdware.nocodelibmobile.utils.LoadPage
 class MainActivity : BaseComposeActivity() {
 
     override fun getBaseUrl(): String {
-        return "https://crowdware.github.io/FreeBookReader/app.sml"
+        return "https://crowdware.github.io/NoCodeBrowser/app.sml"
     }
 
     @Composable
@@ -66,7 +66,7 @@ class MainActivity : BaseComposeActivity() {
         NoCodeLibMobileTheme(app!!.theme) {
             LocaleManager.init(applicationContext, resources)
             println("AppId: ${app!!.id}")
-            if (app!!.id == "at.crowdware.freebookreader") {
+            if (app!!.id == "at.crowdware.nocodebrowser") {
                 println("we are in")
                 // in the local app we use Scaffold and the navigation drawer
                 Scaffold(modifier = Modifier.fillMaxSize()) { _ ->
@@ -121,7 +121,7 @@ class MainActivity : BaseComposeActivity() {
                         }
                     }
                     println("about to draw navi")
-                    NavigationView(list, context)
+                    NavigationView(list, context, "NoCodeBrowser")
                 }
             } else {
                 // if the external app is loaded we only render the app

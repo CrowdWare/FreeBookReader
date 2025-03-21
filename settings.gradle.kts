@@ -14,7 +14,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "FreeBookReader"
+rootProject.name = "NoCodeBrowser"
 include(":app")
 include(":nocodelibmobile")
 project(":nocodelibmobile").projectDir = file("nocodelibmobile")

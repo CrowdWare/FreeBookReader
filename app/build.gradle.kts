@@ -32,7 +32,7 @@ val minutesPart = String.format("%02d", currentDateTime.minute)
 val version = "$majorVersion.$yearPart$monthPart.$dayPart$hourPart$minutesPart".take(11)
 
 android {
-    namespace = "at.crowdware.freebookreader"
+    namespace = "at.crowdware.nocodebrowser"
     compileSdk = 34
 
     sourceSets {
@@ -57,7 +57,7 @@ android {
                 "!*~"
             )
         }
-        applicationId = "at.crowdware.freebookreader"
+        applicationId = "at.crowdware.nocodebrowser"
         minSdk = 29
         targetSdk = 34
         versionCode = newVersionCode
@@ -148,7 +148,7 @@ tasks.register("generateVersionFile") {
         val versionFile = outputDir.resolve("Version.kt")
         versionFile.parentFile.mkdirs() // Create the directory if it doesn't exist
         versionFile.writeText("""
-            package at.crowdware.freebookreader
+            package at.crowdware.nocodebrowser
 
             object Version {
                 const val version = "$versionValue"
