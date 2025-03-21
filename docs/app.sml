@@ -1,7 +1,7 @@
 App {
 	name: "MyApp"
 	icon: "icon.png"
-	id: "at.crowdware.nocodebrowser"
+	id: "at.crowdware.freebookreader"
 	smlVersion: "1.1"
 
   Theme {

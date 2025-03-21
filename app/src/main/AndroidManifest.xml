@@ -16,7 +16,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="NoCodeBrowser"
+            android:label="FreeBookReader"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.FreeBookReader">
             <intent-filter>
