@@ -1,23 +1,23 @@
 /****************************************************************************
  * Copyright (C) 2025 CrowdWare
  *
- * This file is part of NoCodeBrowser.
+ * This file is part of FreeBookReader.
  *
- *  NoCodeBrowser is free software: you can redistribute it and/or modify
+ *  FreeBookReader is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
  *  (at your option) any later version.
  *
- *  NoCodeBrowser is distributed in the hope that it will be useful,
+ *  FreeBookReader is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY without even the implied warranty of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *  GNU General Public License for more details.
  *
  *  You should have received a copy of the GNU General Public License
- *  along with NoCodeBrowser.  If not, see <http://www.gnu.org/licenses/>.
+ *  along with FreeBookReader.  If not, see <http://www.gnu.org/licenses/>.
  *
  ****************************************************************************/
-package at.crowdware.nocodebrowser
+package at.crowdware.freebookreader
 
 import android.annotation.SuppressLint
 import android.view.View
@@ -41,6 +41,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import at.crowdware.nocodebrowser.R
 import at.crowdware.nocodelibmobile.BaseComposeActivity
 import at.crowdware.nocodelibmobile.logic.LocaleManager
 import at.crowdware.nocodelibmobile.ui.theme.NoCodeLibMobileTheme
@@ -52,7 +53,7 @@ import at.crowdware.nocodelibmobile.utils.LoadPage
 class MainActivity : BaseComposeActivity() {
 
     override fun getBaseUrl(): String {
-        return "https://crowdware.github.io/NoCodeBrowser/app.sml"
+        return "https://crowdware.github.io/FreeBookReader/app.sml"
     }
 
     @Composable
@@ -66,7 +67,7 @@ class MainActivity : BaseComposeActivity() {
         NoCodeLibMobileTheme(app!!.theme) {
             LocaleManager.init(applicationContext, resources)
             println("AppId: ${app!!.id}")
-            if (app!!.id == "at.crowdware.nocodebrowser") {
+            if (app!!.id == "at.crowdware.freebookreader") {
                 println("we are in")
                 // in the local app we use Scaffold and the navigation drawer
                 Scaffold(modifier = Modifier.fillMaxSize()) { _ ->
@@ -121,7 +122,7 @@ class MainActivity : BaseComposeActivity() {
                         }
                     }
                     println("about to draw navi")
-                    NavigationView(list, context, "NoCodeBrowser")
+                    NavigationView(list, context, "FreeBookReader")
                 }
             } else {
                 // if the external app is loaded we only render the app
