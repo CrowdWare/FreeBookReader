@@ -21,8 +21,7 @@ package at.crowdware.freebookreader.utils
 import android.os.Build
 import androidx.annotation.RequiresApi
 import at.crowdware.freebookreader.MainActivity
-import at.crowdware.freebookreader.logic.LocaleManager
-import at.crowdware.freebookreader.logic.PersistanceManager
+import at.crowdware.nocodelibmobile.logic.LocaleManager
 import at.crowdware.freebookreader.parseApp
 import at.crowdware.freebookreader.parsePage
 import at.crowdware.freebookreader.ui.App

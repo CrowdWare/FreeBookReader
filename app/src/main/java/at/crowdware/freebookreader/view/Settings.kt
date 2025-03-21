@@ -61,7 +61,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import at.crowdware.freebookreader.MainActivity
 import at.crowdware.freebookreader.R
-import at.crowdware.freebookreader.logic.LocaleManager
+import at.crowdware.nocodelibmobile.logic.LocaleManager
 import at.crowdware.freebookreader.ui.theme.OnPrimary
 import at.crowdware.freebookreader.ui.theme.Primary
 import at.crowdware.freebookreader.ui.widgets.DropDownListbox

@@ -52,14 +52,14 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import at.crowdware.freebookreader.logic.LocaleManager
+import at.crowdware.nocodelibmobile.logic.LocaleManager
 import at.crowdware.freebookreader.ui.App
 import at.crowdware.freebookreader.ui.theme.FreeBookReaderTheme
 import at.crowdware.freebookreader.ui.widgets.NavigationItem
 import at.crowdware.freebookreader.ui.widgets.NavigationView
 import at.crowdware.freebookreader.utils.ContentLoader
 import at.crowdware.freebookreader.view.LoadPage
-import at.crowdware.freebookreader.R
+import at.crowdware.nocodelibmobile.HelloLibWorld
 import com.google.android.filament.utils.Utils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -103,6 +103,9 @@ class MainActivity : ComponentActivity() {
                 setContent {
                     FreeBookReaderTheme(app!!.theme) {
                         LocaleManager.init(applicationContext, resources)
+
+                        //HelloLibWorld()
+
 
                         if(app!!.id == "at.crowdware.freebookreader") {
                             // in the local app we use Scaffold and the navigation drawer
