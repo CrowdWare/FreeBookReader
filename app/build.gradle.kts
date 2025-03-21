@@ -7,7 +7,6 @@ plugins {
     alias(libs.plugins.kotlin.android)
 }
 
-
 // read local.properties file
 val localPropsFile = file("../local.properties")
 val localProps = Properties()
@@ -108,6 +107,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(project(":nocodelibmobile"))
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

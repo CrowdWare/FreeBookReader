@@ -5,7 +5,7 @@
     <string name="navigation_home">Página principal</string>
     <string name="navigation_about">Sobre nosotros</string>
     <string name="about">Sobre</string>
-    <string name="about_dialog_text">FreeBookReader es una forma sencilla de cargar, probar y ejecutar libros dinámicamente a través de internet.\nEsto significa que el libro completo se instala en un servidor web y el contenido se descarga automáticamente en la aplicación.</string><string name="personal_data">Datos personales</string>
+    <string name="about_dialog_text">NoCodeLibMobile es una forma sencilla de cargar, probar y ejecutar libros dinámicamente a través de internet.\nEsto significa que el libro completo se instala en un servidor web y el contenido se descarga automáticamente en la aplicación.</string><string name="personal_data">Datos personales</string>
     <string name="select_preferred_language">Selecciona el idioma preferido</string>
     <string name="language_english">Inglés</string>
     <string name="language_german">Alemán</string>

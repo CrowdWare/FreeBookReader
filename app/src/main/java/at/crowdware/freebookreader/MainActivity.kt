@@ -1,5 +1,5 @@
 /****************************************************************************
- * Copyright (C) 2024 CrowdWare
+ * Copyright (C) 2025 CrowdWare
  *
  * This file is part of FreeBookReader.
  *
@@ -59,6 +59,7 @@ import at.crowdware.freebookreader.ui.widgets.NavigationItem
 import at.crowdware.freebookreader.ui.widgets.NavigationView
 import at.crowdware.freebookreader.utils.ContentLoader
 import at.crowdware.freebookreader.view.LoadPage
+import at.crowdware.freebookreader.R
 import com.google.android.filament.utils.Utils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -81,6 +82,8 @@ class MainActivity : ComponentActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
         val context = this
         window.decorView.systemUiVisibility = (
                 View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
@@ -234,7 +237,7 @@ class MainActivity : ComponentActivity() {
 
     // this technique is used to pre install the app to the cache for faster loads
     private fun installCacheFromAssets() {
-        val directory = File(this.filesDir, "ContentCache/crowdware_github_io/FreeBookReader")
+        val directory = File(this.filesDir, "ContentCache/crowdware_github_io/NoCodeLibMobile")
         var pages: File
         var parts: File
         var images: File

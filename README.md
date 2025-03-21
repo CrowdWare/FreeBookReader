@@ -1,4 +1,4 @@
-# FreeBookReader
+# NoCodeLibMobile
 
 With this app you can read and test the new kind of ebooks which we name FreeBooks. 
 These books can be created using the [FreeBookDesigner](https://github.com/CrowdWare/FreeBookDesigner).

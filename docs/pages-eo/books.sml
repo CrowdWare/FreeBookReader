@@ -1,6 +1,6 @@
 Page {
     padding: "8"
-    title: "FreeBookReader"
+    title: "NoCodeLibMobile"
     scrollable: "true"
 
     Column {
