@@ -81,12 +81,12 @@ import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.ui.PlayerView
 import androidx.navigation.NavHostController
 import at.crowdware.freebookreader.MainActivity
-import at.crowdware.freebookreader.ui.Padding
-import at.crowdware.freebookreader.ui.Page
+import at.crowdware.nocodelibmobile.utils.Padding
+import at.crowdware.nocodelibmobile.utils.Page
 import at.crowdware.freebookreader.ui.SettingsDialog
-import at.crowdware.freebookreader.ui.UIElement
-import at.crowdware.freebookreader.ui.hexToColor
-import at.crowdware.freebookreader.ui.parseMarkdown
+import at.crowdware.nocodelibmobile.utils.UIElement
+import at.crowdware.nocodelibmobile.utils.hexToColor
+import at.crowdware.nocodelibmobile.utils.parseMarkdown
 import at.crowdware.freebookreader.ui.widgets.NavigationManager
 import com.google.android.filament.utils.KTX1Loader
 import com.google.android.filament.utils.ModelViewer

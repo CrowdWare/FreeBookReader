@@ -22,10 +22,10 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import at.crowdware.freebookreader.MainActivity
 import at.crowdware.nocodelibmobile.logic.LocaleManager
-import at.crowdware.freebookreader.parseApp
-import at.crowdware.freebookreader.parsePage
-import at.crowdware.freebookreader.ui.App
-import at.crowdware.freebookreader.ui.Page
+import at.crowdware.nocodelibmobile.parseApp
+import at.crowdware.nocodelibmobile.parsePage
+import at.crowdware.nocodelibmobile.utils.App
+import at.crowdware.nocodelibmobile.utils.Page
 import kotlinx.coroutines.*
 import okhttp3.*
 import org.json.JSONArray

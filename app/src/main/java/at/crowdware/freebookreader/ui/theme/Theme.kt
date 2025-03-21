@@ -30,8 +30,8 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import at.crowdware.freebookreader.ui.ThemeElement
-import at.crowdware.freebookreader.ui.hexToColor
+import at.crowdware.nocodelibmobile.utils.ThemeElement
+import at.crowdware.nocodelibmobile.utils.hexToColor
 
 private val DarkColorScheme = darkColorScheme(
     primary = Primary,
