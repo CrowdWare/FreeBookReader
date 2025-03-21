@@ -767,6 +767,12 @@ fun RenderElement(
         is UIElement.SceneElement -> {
             dynamicScene(modifier = Modifier, element = element, dataItem)
         }
+        is UIElement.SpacerElement -> {
+            var mod = Modifier as Modifier
+            if (element.amount > 0)
+                mod = mod.then(Modifier.height(element.amount.dp).then(Modifier.width(element.amount.dp)))
+            Spacer(modifier = mod)
+        }
         else -> {}
     }
 }
@@ -1079,15 +1085,6 @@ fun dynamicScene(modifier: Modifier = Modifier, element: UIElement.SceneElement,
             choreographer.removeFrameCallback(frameCallback)
         }
     }
-}
-
-@Composable
-fun dynamicEmbed(modifier: Modifier = Modifier, url: String) {
-    val context = LocalContext.current
-    val mainActivity = context as MainActivity
-
-    //Text(modifier = modifier, text = "Embed")
-    //println("Embed: $url")
 }
 
 fun loadAssetFromCache(assetName: String, context: Context): ByteBuffer {
