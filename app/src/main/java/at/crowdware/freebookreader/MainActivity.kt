@@ -41,7 +41,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import at.crowdware.nocodebrowser.R
 import at.crowdware.nocodelibmobile.BaseComposeActivity
 import at.crowdware.nocodelibmobile.logic.LocaleManager
 import at.crowdware.nocodelibmobile.ui.theme.NoCodeLibMobileTheme
