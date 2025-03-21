@@ -65,8 +65,9 @@ import at.crowdware.nocodelibmobile.logic.LocaleManager
 import at.crowdware.freebookreader.ui.theme.OnPrimary
 import at.crowdware.freebookreader.ui.theme.Primary
 import at.crowdware.freebookreader.ui.widgets.DropDownListbox
-import at.crowdware.freebookreader.utils.Link
+import at.crowdware.nocodelibmobile.utils.Link
 import at.crowdware.freebookreader.ui.widgets.rememberDropDownListboxStateHolder
+import at.crowdware.nocodelibmobile.BaseComposeActivity
 
 
 @Composable
@@ -78,7 +79,7 @@ fun Settings() {
     var links =
         remember { mutableStateListOf<Link>() } // Verwenden Sie mutableStateListOf für eine reaktive Liste
 
-    if (context is MainActivity) {
+    if (context is BaseComposeActivity) {
         if (links.isEmpty())
             links.addAll(context.contentLoader.links) // Fügen Sie Links zur Liste hinzu
     }
