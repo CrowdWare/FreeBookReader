@@ -39,5 +39,29 @@ Page {
 
         Spacer {amount: 8}
         Button {label: "Home" link: "page:app.home" }       
+
+        Spacer {amount: 16}
+        Markdown {
+            color: "#4C9BD9"
+            text: "# Neuerscheinungen"
+          }
+        LazyRow {
+            url: "https://artanidos.pythonanywhere.com/crowdware/items?type=book&limit=13"
+            height: 220
+
+            LazyContent {
+                Column { 
+                    weight:1
+                    
+                    Image { 
+                        src: "<pictureurl>" 
+                        width: 120
+                        link: "<url>"
+                    }
+                }
+                Spacer {amount: 8}
+            }
+        }  
+
     }
 }

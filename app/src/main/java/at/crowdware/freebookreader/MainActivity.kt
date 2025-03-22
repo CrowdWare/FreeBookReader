@@ -65,9 +65,7 @@ class MainActivity : BaseComposeActivity() {
 
         NoCodeLibMobileTheme(app!!.theme) {
             LocaleManager.init(applicationContext, resources)
-            println("AppId: ${app!!.id}")
             if (app!!.id == "at.crowdware.freebookreader") {
-                println("we are in")
                 // in the local app we use Scaffold and the navigation drawer
                 Scaffold(modifier = Modifier.fillMaxSize()) { _ ->
                     val list = mutableListOf(
@@ -120,7 +118,6 @@ class MainActivity : BaseComposeActivity() {
                             )
                         }
                     }
-                    println("about to draw navi")
                     NavigationView(list, context, "FreeBookReader")
                 }
             } else {
