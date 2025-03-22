@@ -23,6 +23,7 @@ Page {
                         link: "<url>"
                     }
                 }
+                Button {label: "REM" link: "remove:favourite[<uuid>]"}
                 Spacer {amount: 8}
             }
 
