@@ -23,7 +23,7 @@ Page {
                 Row {
                     padding: "8"
               
-                    Column {
+                   
                         Image { 
                             src: "<pictureurl>" 
                             width: 50
@@ -31,7 +31,7 @@ Page {
                             link: "<url>"
                         }
                         
-                    }
+                    
                     Spacer {amount: 8}
                     Markdown {
                         weight: 1
@@ -44,6 +44,6 @@ Page {
 
         Spacer {amount: 8}
         Button {label: "Home" link: "page:app.home" }
-        Button {label: "FAV" link: "add:favourite[<uuid>]" width: 100}
+        Button {label: "FAV" link: "add:favourite[<uuid>]"}
     }
 }
