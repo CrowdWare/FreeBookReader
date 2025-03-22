@@ -37,7 +37,7 @@ Page {
             }
         }
 
-        Spacer {amount: 16}
-        Button {label: "Home 2" link: "page:app.home" }       
+        Spacer {weight: 1}
+        Button {label: "Home" link: "page:app.home" }       
     }
 }
