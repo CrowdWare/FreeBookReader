@@ -23,11 +23,14 @@ Page {
                 Row {
                     padding: "8"
               
-                    Image { 
-                        src: "<pictureurl>" 
-                        width: 50
-                        weight: 1
-                        link: "<url>"
+                    Column {
+                        Image { 
+                            src: "<pictureurl>" 
+                            width: 50
+                            weight: 1
+                            link: "<url>"
+                        }
+                        Button {label: "FAV" link: "add:favourite[<uuid>]"}
                     }
                     Spacer {amount: 8}
                     Markdown {
