@@ -18,7 +18,7 @@ Page {
                  Image { 
                     src: "<pictureurl>" 
                     width: 120
-                    link: "<link>"
+                    link: "<url>"
                 }
             }
             Spacer {amount: 8}
@@ -38,7 +38,7 @@ Page {
                  Image { 
                     src: "<pictureurl>" 
                     width: 120
-                    link: "<link>"
+                    link: "<url>"
                 }
             }
             Spacer {amount: 8}
