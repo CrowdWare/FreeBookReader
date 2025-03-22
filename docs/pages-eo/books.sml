@@ -26,7 +26,7 @@ Page {
                     src: "<pictureurl>" 
                     width: 50
                     weight: 1
-                    link: "<link>"
+                    link: "<url>"
                 }
                 Spacer {amount: 8}
                 Markdown {
