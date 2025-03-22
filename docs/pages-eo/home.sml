@@ -27,7 +27,7 @@ Page {
             }
 
             LazyNoContent {
-                MarkDown { text: "## Hier gibt es nichts zu sehen..."}
+                Markdown { text: "## Hier gibt es nichts zu sehen..."}
             }
         }  
         
