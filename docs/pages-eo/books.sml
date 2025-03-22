@@ -30,7 +30,7 @@ Page {
                             weight: 1
                             link: "<url>"
                         }
-                        Button {label: "FAV" link: "add:favourite[<uuid>]"}
+                        //Button {label: "FAV" link: "add:favourite[<uuid>]"}
                     }
                     Spacer {amount: 8}
                     Markdown {
@@ -43,9 +43,6 @@ Page {
         }
 
         Spacer {amount: 8}
-        Button {label: "Home" link: "page:app.home" }       
-
-        
-
+        Button {label: "Home" link: "page:app.home" }
     }
 }

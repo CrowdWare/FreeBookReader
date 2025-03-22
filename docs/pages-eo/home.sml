@@ -22,8 +22,9 @@ Page {
                         width: 120
                         link: "<url>"
                     }
+                    Button {label: "REM" link: "remove:favourite[<uuid>]"}
                 }
-                Button {label: "REM" link: "remove:favourite[<uuid>]"}
+                
                 Spacer {amount: 8}
             }
 
