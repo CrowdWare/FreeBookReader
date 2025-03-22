@@ -1,7 +1,7 @@
 Page {
     padding: "8"
     title: "NoCodeLibMobile"
-    scrollable: "true"
+   
 
     Column {
         padding: "8"
@@ -37,7 +37,7 @@ Page {
             }
         }
 
-        Spacer {weight: 1}
+        Spacer {amount: 16}
         Button {label: "Home" link: "page:app.home" }       
     }
 }
