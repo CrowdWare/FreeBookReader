@@ -13,15 +13,22 @@ Page {
             url: "https://artanidos.pythonanywhere.com/crowdware/items?type=book&filter=favourite"
             height: 220
 
-            Column { 
-                weight:1
-                 Image { 
-                    src: "<pictureurl>" 
-                    width: 120
-                    link: "<url>"
+            LazyContent {
+                Column { 
+                    weight:1
+                    
+                    Image { 
+                        src: "<pictureurl>" 
+                        width: 120
+                        link: "<url>"
+                    }
                 }
+                Spacer {amount: 8}
             }
-            Spacer {amount: 8}
+
+            LazyNoContent {
+                MarkDown { text: "Hier gibt es nichts zu sehen..."}
+            }
         }  
         
         Spacer {amount: 16}
@@ -30,18 +37,21 @@ Page {
             text: "# Neuerscheinungen"
           }
         LazyRow {
-            url: "https://artanidos.pythonanywhere.com/crowdware/items?type=book&filter=new"
+            url: "https://artanidos.pythonanywhere.com/crowdware/items?type=book&limit=13"
             height: 220
 
-            Column { 
-                weight:1
-                 Image { 
-                    src: "<pictureurl>" 
-                    width: 120
-                    link: "<url>"
+            LazyContent {
+                Column { 
+                    weight:1
+                    
+                    Image { 
+                        src: "<pictureurl>" 
+                        width: 120
+                        link: "<url>"
+                    }
                 }
+                Spacer {amount: 8}
             }
-            Spacer {amount: 8}
         }  
 
         Spacer { weight: 1 }
