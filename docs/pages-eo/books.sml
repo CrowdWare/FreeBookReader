@@ -17,7 +17,7 @@ Page {
 
         LazyColumn {
             url: "https://artanidos.pythonanywhere.com/crowdware/items?type=book" 
-            weight: 1
+           
 
             Row {
                 padding: "8"
@@ -37,7 +37,7 @@ Page {
             }
         }
 
-        Spacer {weight: 1}
+        Spacer {amount: 8}
         Button {label: "Home" link: "page:app.home" }       
     }
 }
