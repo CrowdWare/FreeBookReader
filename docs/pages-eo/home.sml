@@ -10,7 +10,7 @@ Page {
             text: "# Favoriten"
           }
         LazyRow {
-            url: "https://artanidos.pythonanywhere.com/crowdware/items?type=book&filter=list:favourite"
+            url: "https://artanidos.pythonanywhere.com/crowdware/items?type=book&filter=list:favourite[uuid]"
             height: 220
 
             LazyContent {
