@@ -24,6 +24,7 @@ Page {
             Spacer {amount: 8}
         }  
         
+        Spacer {amount: 16}
         Markdown {
             color: "#4C9BD9"
             text: "# Neuerscheinungen"

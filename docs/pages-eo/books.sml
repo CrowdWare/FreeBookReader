@@ -11,7 +11,7 @@ Page {
             text: "# Bücher Finden"
         }
         Markdown {
-            text: "Hier findest Du eine Liste alles veröffentlichten Bücher."
+            text: "Hier findest Du eine Liste aller veröffentlichten Bücher."
         }
         Spacer {amount: 8}
 
