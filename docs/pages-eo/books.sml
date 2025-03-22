@@ -38,6 +38,6 @@ Page {
         }
 
         Spacer {amount: 16}
-        Button {label: "Home" link: "page:app.home" }       
+        Button {label: "Home 2" link: "page:app.home" }       
     }
 }
