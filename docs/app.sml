@@ -1,8 +1,8 @@
 App {
-	name: "MyApp"
-	icon: "icon.png"
-	id: "at.crowdware.freebookreader"
-	smlVersion: "1.1"
+    name: "MyApp"
+    icon: "icon.png"
+    id: "at.crowdware.freebookreader"
+    smlVersion: "1.1"
 
   Theme {
     primary: "#FF0C8CE9"

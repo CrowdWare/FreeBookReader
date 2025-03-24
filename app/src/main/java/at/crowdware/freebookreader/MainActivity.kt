@@ -133,6 +133,7 @@ class MainActivity : BaseComposeActivity() {
 
                 // navigation targets which are not listed in the drawer
                 for (file in app!!.deployment.files) {
+                    println("entry: ${file.path}")
                     if (file.path.endsWith(".sml")) {
                         list.add(file.path.substringBefore(".sml"))
                     }
@@ -160,6 +161,7 @@ class MainActivity : BaseComposeActivity() {
                             }
                         }
                     } else {
+                        println("list is empty: ${app!!.deployment.files.size}")
                         Column(Modifier.padding(10.dp)) {
                             Spacer(modifier = Modifier.height(20.dp))
                             Text("The list of pages is empty. Maybe the deployment descriptor list has not been added to app.sml.")
