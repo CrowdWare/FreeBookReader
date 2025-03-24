@@ -38,7 +38,7 @@ Page {
                     }
                     Spacer {amount: 8}
                 }
-                Button {label: "FAV" link: "add:favourite[<uuid>]"}
+                //Button {label: "FAV" link: "add:favourite[<uuid>]"}
             }
         }
 
