@@ -17,7 +17,7 @@ Page {
                 Column { 
                     weight:1
                     
-                    Image { 
+                    AsyncImage { 
                         src: "<pictureurl>" 
                         width: 120
                         link: "<url>"
@@ -46,7 +46,7 @@ Page {
                 Column { 
                     weight:1
                     
-                    Image { 
+                    AsyncImage { 
                         src: "<pictureurl>" 
                         width: 120
                         link: "<url>"

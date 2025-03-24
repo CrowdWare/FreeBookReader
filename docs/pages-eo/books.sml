@@ -23,8 +23,7 @@ Page {
                 Row {
                     padding: "8"
               
-                   
-                        Image { 
+                        AsyncImage { 
                             src: "<pictureurl>" 
                             width: 50
                             weight: 1
