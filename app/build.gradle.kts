@@ -5,6 +5,7 @@ import java.util.Properties
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.compose.compiler)
 }
 
 // read local.properties file
@@ -33,7 +34,7 @@ val version = "$majorVersion.$yearPart$monthPart.$dayPart$hourPart$minutesPart".
 
 android {
     namespace = "at.crowdware.freebookreader"
-    compileSdk = 34
+    compileSdk = 35
 
     sourceSets {
         // Configure the `main` source set to include the custom directory
@@ -89,7 +90,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
+        kotlinCompilerExtensionVersion = "1.5.10"   //"1.5.1"
     }
     packaging {
         resources {
@@ -130,6 +131,9 @@ dependencies {
     implementation("com.google.android.filament:filament-android:1.54.5")
     implementation("com.google.android.filament:filament-utils-android:1.54.5")
     implementation("com.google.android.filament:gltfio-android:1.54.5")
+
+    // 👇 NEU ab Kotlin 2.0 – explizit hinzufügen!
+    implementation("androidx.compose.compiler:compiler:1.5.10")
 }
 
 tasks.named("assemble") {
