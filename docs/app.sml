@@ -40,10 +40,11 @@ App {
 // deployment start - don't edit here
 Deployment {
   File { path: "about.sml" time: "2024.11.28 15.52.46" type: "page-en" }
-  File { path: "home.sml" time: "2025.03.21 08.22.31" type: "page-en" }
+  File { path: "books.sml" time: "2025.03.24 23.15.51" type: "page-en" }
+  File { path: "home.sml" time: "2025.03.24 23.16.46" type: "page-en" }
   File { path: "about.sml" time: "2024.12.06 08.17.22" type: "page-de" }
-  File { path: "books.sml" time: "2025.03.21 08.22.31" type: "page-de" }
-  File { path: "home.sml" time: "2025.03.21 08.22.31" type: "page-de" }
+  File { path: "books.sml" time: "2025.03.24 23.15.08" type: "page-de" }
+  File { path: "home.sml" time: "2025.03.24 23.14.47" type: "page-de" }
   File { path: "about.sml" time: "2024.11.28 15.54.03" type: "page-es" }
   File { path: "home.sml" time: "2025.03.21 08.22.31" type: "page-es" }
   File { path: "about.sml" time: "2024.11.28 15.54.10" type: "page-pt" }
