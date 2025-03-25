@@ -17,15 +17,16 @@ Page {
             LazyContent {
                 Column { 
                     weight:1
-                    
-                    AsyncImage { 
-                        src: "<pictureurl>" 
-                        width: 120
-                        link: "<url>"
+                    Box {
+                        width: 150
+                        heigth: 100
+                        padding: "8"
+                        AsyncImage{src: "<pictureurl>" width: 120 link: "<url>"}
+                        Image{src: "herz.png" width: 32 height: 32 
+                            align: "topEnd"
+                            link: "remove:favourite[<uuid>]"}
                     }
-                    //Button {label: "REM" link: "remove:favourite[<uuid>]"}
                 }
-                
                 Spacer {amount: 8}
             }
 
@@ -56,6 +57,7 @@ Page {
                 Spacer {amount: 8}
             }
         }  
+        
         Spacer { weight: 1 }
         Button { label: "Bücher Finden" link: "page:app.books" }
     }

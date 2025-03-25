@@ -40,20 +40,23 @@ App {
 // deployment start - don't edit here
 Deployment {
   File { path: "about.sml" time: "2024.11.28 15.52.46" type: "page-en" }
-  File { path: "books.sml" time: "2025.03.25 00.26.12" type: "page-en" }
-  File { path: "home.sml" time: "2025.03.25 00.26.01" type: "page-en" }
+  File { path: "books.sml" time: "2025.03.25 07.04.46" type: "page-en" }
+  File { path: "home.sml" time: "2025.03.25 07.03.46" type: "page-en" }
   File { path: "about.sml" time: "2024.12.06 08.17.22" type: "page-de" }
   File { path: "books.sml" time: "2025.03.25 00.52.25" type: "page-de" }
-  File { path: "home.sml" time: "2025.03.25 00.52.32" type: "page-de" }
+  File { path: "home.sml" time: "2025.03.25 17.10.27" type: "page-de" }
   File { path: "about.sml" time: "2024.11.28 15.54.03" type: "page-es" }
-  File { path: "home.sml" time: "2025.03.21 08.22.31" type: "page-es" }
+  File { path: "books.sml" time: "2025.03.25 07.12.25" type: "page-es" }
+  File { path: "home.sml" time: "2025.03.25 07.12.55" type: "page-es" }
   File { path: "about.sml" time: "2024.11.28 15.54.10" type: "page-pt" }
-  File { path: "home.sml" time: "2025.03.21 08.22.31" type: "page-pt" }
+  File { path: "books.sml" time: "2025.03.25 07.16.37" type: "page-pt" }
+  File { path: "home.sml" time: "2025.03.25 07.16.11" type: "page-pt" }
   File { path: "about.sml" time: "2024.11.28 15.54.06" type: "page-fr" }
-  File { path: "home.sml" time: "2025.03.21 08.22.31" type: "page-fr" }
+  File { path: "books.sml" time: "2025.03.25 07.15.01" type: "page-fr" }
+  File { path: "home.sml" time: "2025.03.25 07.15.22" type: "page-fr" }
   File { path: "about.sml" time: "2024.11.28 15.53.59" type: "page-eo" }
-  File { path: "books.sml" time: "2025.03.24 20.57.43" type: "page-eo" }
-  File { path: "home.sml" time: "2025.03.24 20.57.31" type: "page-eo" }
+  File { path: "books.sml" time: "2025.03.25 07.08.49" type: "page-eo" }
+  File { path: "home.sml" time: "2025.03.25 07.09.09" type: "page-eo" }
 
 
 
@@ -62,6 +65,7 @@ Deployment {
 
   File { path: "desktop.png" time: "2024.10.14 09.37.53" type: "image" }
   File { path: "ship.png" time: "2024.09.03 09.08.18" type: "image" }
+  File { path: "herz.png" time: "2025.03.25 17.07.44" type: "image" }
   File { path: "menu.png" time: "2024.10.16 05.50.12" type: "image" }
   File { path: "art_anyona.jpg" time: "2024.10.15 00.52.04" type: "image" }
   File { path: "DieReiseZumWahrenLeben.jpg" time: "2024.12.03 16.52.22" type: "image" }
