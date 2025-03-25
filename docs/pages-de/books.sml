@@ -26,14 +26,16 @@ Page {
               
                     Box {
                         width: 120
-                        //heigth: 100
-                        padding: "8"
+
                         AsyncImage{
                             src: "<pictureurl>" 
                             width: 120 
                             link: "<url>"
                         }
-                        Image{src: "herz.png" width: 32 height: 32 
+                        Image{
+                            src: "herz.png" 
+                            width: 32 
+                            height: 32 
                             align: "topEnd"
                             link: "add:favourite[<uuid>]"}
                     }                        
@@ -45,7 +47,6 @@ Page {
                     }
                     Spacer {amount: 8}
                 }
-                //Button {label: "FAV" link: "add:favourite[<uuid>]"}
             }
         }
 

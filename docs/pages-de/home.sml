@@ -19,8 +19,7 @@ Page {
                     weight:1
                     Box {
                         width: 120
-                        //heigth: 100
-                        padding: "8"
+
                         AsyncImage{
                             src: "<pictureurl>" 
                             width: 120 
@@ -54,13 +53,13 @@ Page {
                     
                       Box {
                         width: 120
-                        //heigth: 100
-                        padding: "8"
+                        
                         AsyncImage{
                             src: "<pictureurl>" 
                             width: 120 
                             link: "<url>"
                         }
+
                         Image{src: "herz.png" width: 32 height: 32 
                             align: "topEnd"
                             link: "add:favourite[<uuid>]"}
