@@ -63,7 +63,7 @@ Page {
                         }
                         Image{src: "herz.png" width: 32 height: 32 
                             align: "topEnd"
-                            link: "remove:favourite[<uuid>]"}
+                            link: "add:favourite[<uuid>]"}
                     }
                 }
                 Spacer {amount: 8}

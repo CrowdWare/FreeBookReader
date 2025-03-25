@@ -24,13 +24,19 @@ Page {
                 Row {
                     padding: "8"
               
-                        AsyncImage { 
+                    Box {
+                        width: 120
+                        //heigth: 100
+                        padding: "8"
+                        AsyncImage{
                             src: "<pictureurl>" 
-                            width: 50
-                            weight: 1
+                            width: 120 
                             link: "<url>"
                         }
-                        
+                        Image{src: "herz.png" width: 32 height: 32 
+                            align: "topEnd"
+                            link: "add:favourite[<uuid>]"}
+                    }                        
                     
                     Spacer {amount: 8}
                     Markdown {
