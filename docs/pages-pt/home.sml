@@ -7,28 +7,56 @@ Page {
                         
         Markdown {
             color: "#4C9BD9"
-            text: "# Bem-vindo"
-          }
-          Markdown { 
-              fontSize: 16
-            text :"
-                Ficamos felizes que você esteja usando a solução FreeBook.
-                Por favor, note que esta é ainda uma versão incipiente, que pode conter alguns erros.
-                O conteúdo deste aplicativo foi criado com **FreeBookDesigner**, um aplicativo para desktop."
+            text: "# Favoritos"
         }
-        Spacer { amount: 16 }
+        
+        LazyRow {
+            url: "https://artanidos.pythonanywhere.com/crowdware/items?type=book&locale=pt&filter=inList:favourite[uuid]"
+            height: 220
+
+            LazyContent {
+                Column { 
+                    weight:1
+                    
+                    AsyncImage { 
+                        src: "<pictureurl>" 
+                        width: 120
+                        link: "<url>"
+                    }
+                    //Button {label: "REM" link: "remove:favourite[<uuid>]"}
+                }
+                
+                Spacer {amount: 8}
+            }
+
+            LazyNoContent {
+                Markdown { text: "## Você ainda não adicionou nenhum livro aos seus favoritos..."}
+            }
+        }  
+        
+        Spacer {amount: 16}
         Markdown {
             color: "#4C9BD9"
-            text: "### FreeBookDesigner"
-         }
-        Spacer { amount: 8 }
-        Image { src: "desktop.png" }
-        Spacer { amount: 16 }
-        Markdown {
-            fontSize: 16
-            text: "Comece agora, crie um e-book ou até mesmo um aplicativo e produza conteúdos para outras pessoas, o que ajudará você a se aproximar de seus sonhos."}
+            text: "# Novidades"
+          }
+        LazyRow {
+            url: "https://artanidos.pythonanywhere.com/crowdware/items?type=book&locale=pt&limit=13&filter=notInList:favourite[uuid]"
+            height: 220
 
+            LazyContent {
+                Column { 
+                    weight:1
+                    
+                    AsyncImage { 
+                        src: "<pictureurl>" 
+                        width: 120
+                        link: "<url>"
+                    }
+                }
+                Spacer {amount: 8}
+            }
+        }  
         Spacer { weight: 1 }
-        Button { label: "Sobre FreeBook" link: "page:app.about"}
+        Button { label: "Encontrar Livros" link: "page:app.books" }
     }
 }

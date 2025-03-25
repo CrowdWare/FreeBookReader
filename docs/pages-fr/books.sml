@@ -8,15 +8,16 @@ Page {
                         
         Markdown {
             color: "#4C9BD9"
-            text: "# Find Books"
+            text: "# Trouver des livres"
         }
         Markdown {
-            text: "Here you'll find a list of all published books"
+            text: "Vous trouverez ici une liste de tous les livres publiés."
         }
         Spacer {amount: 8}
 
+
         LazyColumn {
-            url: "https://artanidos.pythonanywhere.com/crowdware/items?type=book&locale=en" 
+            url: "https://artanidos.pythonanywhere.com/crowdware/items?type=book&locale=fr" 
             weight: 1
 
             LazyContent {

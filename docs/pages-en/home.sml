@@ -7,8 +7,9 @@ Page {
                         
         Markdown {
             color: "#4C9BD9"
-            text: "# Favouriten"
-          }
+            text: "# Favorites"
+        }
+        
         LazyRow {
             url: "https://artanidos.pythonanywhere.com/crowdware/items?type=book&locale=en&filter=inList:favourite[uuid]"
             height: 220
@@ -29,14 +30,14 @@ Page {
             }
 
             LazyNoContent {
-                Markdown { text: "## Hier gibt es nichts zu sehen..."}
+                Markdown { text: "## Sie haben noch kein Buch zu ihren Favoriten gemacht..."}
             }
         }  
         
         Spacer {amount: 16}
         Markdown {
             color: "#4C9BD9"
-            text: "# New releases"
+            text: "# New Releases"
           }
         LazyRow {
             url: "https://artanidos.pythonanywhere.com/crowdware/items?type=book&locale=en&limit=13&filter=notInList:favourite[uuid]"
@@ -56,6 +57,6 @@ Page {
             }
         }  
         Spacer { weight: 1 }
-        Button { label: "Find books" link: "page:app.books" }
+        Button { label: "Find Books" link: "page:app.books" }
     }
 }

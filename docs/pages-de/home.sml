@@ -30,7 +30,7 @@ Page {
             }
 
             LazyNoContent {
-                Markdown { text: "## Hier gibt es nichts zu sehen..."}
+                Markdown { text: "## Sie haben noch kein Buch zu ihren Favoriten gemacht..."}
             }
         }  
         

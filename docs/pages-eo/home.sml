@@ -7,10 +7,11 @@ Page {
                         
         Markdown {
             color: "#4C9BD9"
-            text: "# Favoriten"
-          }
+            text: "# Favoratoj"
+        }
+        
         LazyRow {
-            url: "https://artanidos.pythonanywhere.com/crowdware/items?type=book&filter=inList:favourite[uuid]"
+            url: "https://artanidos.pythonanywhere.com/crowdware/items?type=book&locale=eo&filter=inList:favourite[uuid]"
             height: 220
 
             LazyContent {
@@ -29,17 +30,17 @@ Page {
             }
 
             LazyNoContent {
-                Markdown { text: "## Hier gibt es nichts zu sehen..."}
+                Markdown { text: "## Vi ankoraŭ ne aldonis libron al viaj favoratoj...."}
             }
         }  
         
         Spacer {amount: 16}
         Markdown {
             color: "#4C9BD9"
-            text: "# Neuerscheinungen"
+            text: "# Novaj Eldonoj"
           }
         LazyRow {
-            url: "https://artanidos.pythonanywhere.com/crowdware/items?type=book&limit=13&filter=notInList:favourite[uuid]"
+            url: "https://artanidos.pythonanywhere.com/crowdware/items?type=book&locale=eo&limit=13&filter=notInList:favourite[uuid]"
             height: 220
 
             LazyContent {
@@ -56,6 +57,6 @@ Page {
             }
         }  
         Spacer { weight: 1 }
-        Button { label: "Bücher Finden" link: "page:app.books" }
+        Button { label: "Trovi Libroj" link: "page:app.books" }
     }
 }
