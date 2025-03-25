@@ -8,7 +8,8 @@ Page {
         Markdown {
             color: "#4C9BD9"
             text: "# Favoriten"
-          }
+        }
+        
         LazyRow {
             url: "https://artanidos.pythonanywhere.com/crowdware/items?type=book&locale=de&filter=inList:favourite[uuid]"
             height: 220

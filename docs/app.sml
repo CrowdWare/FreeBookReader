@@ -43,8 +43,8 @@ Deployment {
   File { path: "books.sml" time: "2025.03.25 00.26.12" type: "page-en" }
   File { path: "home.sml" time: "2025.03.25 00.26.01" type: "page-en" }
   File { path: "about.sml" time: "2024.12.06 08.17.22" type: "page-de" }
-  File { path: "books.sml" time: "2025.03.25 00.39.39" type: "page-de" }
-  File { path: "home.sml" time: "2025.03.25 00.39.59" type: "page-de" }
+  File { path: "books.sml" time: "2025.03.25 00.52.25" type: "page-de" }
+  File { path: "home.sml" time: "2025.03.25 00.52.32" type: "page-de" }
   File { path: "about.sml" time: "2024.11.28 15.54.03" type: "page-es" }
   File { path: "home.sml" time: "2025.03.21 08.22.31" type: "page-es" }
   File { path: "about.sml" time: "2024.11.28 15.54.10" type: "page-pt" }
