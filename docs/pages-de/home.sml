@@ -18,10 +18,14 @@ Page {
                 Column { 
                     weight:1
                     Box {
-                        width: 150
-                        heigth: 100
+                        width: 120
+                        //heigth: 100
                         padding: "8"
-                        AsyncImage{src: "<pictureurl>" width: 120 link: "<url>"}
+                        AsyncImage{
+                            src: "<pictureurl>" 
+                            width: 120 
+                            link: "<url>"
+                        }
                         Image{src: "herz.png" width: 32 height: 32 
                             align: "topEnd"
                             link: "remove:favourite[<uuid>]"}
@@ -48,10 +52,18 @@ Page {
                 Column { 
                     weight:1
                     
-                    AsyncImage { 
-                        src: "<pictureurl>" 
+                      Box {
                         width: 120
-                        link: "<url>"
+                        //heigth: 100
+                        padding: "8"
+                        AsyncImage{
+                            src: "<pictureurl>" 
+                            width: 120 
+                            link: "<url>"
+                        }
+                        Image{src: "herz.png" width: 32 height: 32 
+                            align: "topEnd"
+                            link: "remove:favourite[<uuid>]"}
                     }
                 }
                 Spacer {amount: 8}
