@@ -10,7 +10,7 @@ Page {
             text: "# Favouriten"
           }
         LazyRow {
-            url: "https://artanidos.pythonanywhere.com/crowdware/items?type=book&filter=inList:favourite[uuid]"
+            url: "https://artanidos.pythonanywhere.com/crowdware/items?type=book&locale=en&filter=inList:favourite[uuid]"
             height: 220
 
             LazyContent {
@@ -39,7 +39,7 @@ Page {
             text: "# New releases"
           }
         LazyRow {
-            url: "https://artanidos.pythonanywhere.com/crowdware/items?type=book&limit=13&filter=notInList:favourite[uuid]"
+            url: "https://artanidos.pythonanywhere.com/crowdware/items?type=book&locale=en&limit=13&filter=notInList:favourite[uuid]"
             height: 220
 
             LazyContent {

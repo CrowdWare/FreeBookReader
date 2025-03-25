@@ -16,7 +16,7 @@ Page {
         Spacer {amount: 8}
 
         LazyColumn {
-            url: "https://artanidos.pythonanywhere.com/crowdware/items?type=book" 
+            url: "https://artanidos.pythonanywhere.com/crowdware/items?type=book&locale=en" 
             weight: 1
 
             LazyContent {
