@@ -43,8 +43,8 @@ Deployment {
   File { path: "books.sml" time: "2025.03.25 07.04.46" type: "page-en" }
   File { path: "home.sml" time: "2025.03.25 07.03.46" type: "page-en" }
   File { path: "about.sml" time: "2025.04.11 06.20.15" type: "page-de" }
-  File { path: "books.sml" time: "2025.03.25 17.58.27" type: "page-de" }
-  File { path: "home.sml" time: "2025.03.25 17.59.00" type: "page-de" }
+  File { path: "books.sml" time: "2025.04.11 07.29.19" type: "page-de" }
+  File { path: "home.sml" time: "2025.04.11 07.17.13" type: "page-de" }
   File { path: "about.sml" time: "2025.04.11 06.19.46" type: "page-es" }
   File { path: "books.sml" time: "2025.03.25 07.12.25" type: "page-es" }
   File { path: "home.sml" time: "2025.03.25 07.12.55" type: "page-es" }
@@ -65,11 +65,12 @@ Deployment {
 
   File { path: "desktop.png" time: "2024.10.14 09.37.53" type: "image" }
   File { path: "ship.png" time: "2024.09.03 09.08.18" type: "image" }
-  File { path: "herz.png" time: "2025.03.25 17.07.44" type: "image" }
+  File { path: "herz.png" time: "2025.04.11 07.13.31" type: "image" }
   File { path: "menu.png" time: "2024.10.16 05.50.12" type: "image" }
   File { path: "art_anyona.jpg" time: "2024.10.15 00.52.04" type: "image" }
   File { path: "DieReiseZumWahrenLeben.jpg" time: "2024.12.03 16.52.22" type: "image" }
   File { path: "DieReiseZumWahrenLeben.png" time: "2024.12.03 10.28.21" type: "image" }
+  File { path: "herz_outline.png" time: "2025.04.11 07.13.51" type: "image" }
   File { path: "SpielDesLebens.png" time: "2024.12.03 10.47.22" type: "image" }
   File { path: "olaf.jpg" time: "2023.06.11 04.47.15" type: "image" }
   File { path: "birds39-forest-20772.mp3" time: "2024.10.13 16.14.46" type: "sound" }
