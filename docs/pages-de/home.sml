@@ -25,7 +25,9 @@ Page {
                             width: 120 
                             link: "<url>"
                         }
-                        Image{src: "herz.png" 
+                        Image{
+                            src: "herz.png"
+                            padding: "5" 
                             width: 32 
                             height: 32 
                             align: "topEnd"
@@ -58,13 +60,15 @@ Page {
                         
                         AsyncImage{
                             src: "<pictureurl>" 
-                            width: 120 
+                            width: 120
                             link: "<url>"
                         }
 
-                        Image{src: "herz_outline.png" 
-                            width: 32 
-                            height: 32 
+                        Image{
+                            src: "plus.png"
+                            padding: "5" 
+                            width: 32
+                            height: 32
                             align: "topEnd"
                             link: "add:favourite[<uuid>]"}
                     }

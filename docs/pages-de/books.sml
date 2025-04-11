@@ -34,6 +34,7 @@ Page {
                         }
                         Image{
                             src: "plus.png" 
+                            padding: "5"
                             width: 32 
                             height: 32 
                             align: "topEnd"
