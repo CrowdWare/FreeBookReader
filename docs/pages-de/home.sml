@@ -65,7 +65,7 @@ Page {
                         }
 
                         Image{
-                            src: "plus.png"
+                            src: "herz_outline.png"
                             padding: "5" 
                             width: 32
                             height: 32
