@@ -60,7 +60,7 @@ Page {
                             link: "<url>"
                         }
 
-                        Image{src: "herz.png" width: 32 height: 32 
+                        Image{src: "herz_outline.png" width: 32 height: 32 
                             align: "topEnd"
                             link: "add:favourite[<uuid>]"}
                     }
