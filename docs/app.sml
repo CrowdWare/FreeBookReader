@@ -74,10 +74,7 @@ Deployment {
   File { path: "herz.png" time: "2025.04.11 07.13.31" type: "image" }
   File { path: "menu.png" time: "2024.10.16 05.50.12" type: "image" }
   File { path: "art_anyona.jpg" time: "2024.10.15 00.52.04" type: "image" }
-  File { path: "DieReiseZumWahrenLeben.jpg" time: "2024.12.03 16.52.22" type: "image" }
-  File { path: "DieReiseZumWahrenLeben.png" time: "2024.12.03 10.28.21" type: "image" }
   File { path: "herz_outline.png" time: "2025.04.11 07.13.51" type: "image" }
-  File { path: "SpielDesLebens.png" time: "2024.12.03 10.47.22" type: "image" }
   File { path: "olaf.jpg" time: "2023.06.11 04.47.15" type: "image" }
   File { path: "birds39-forest-20772.mp3" time: "2024.10.13 16.14.46" type: "sound" }
   File { path: "beach.mp4" time: "2024.09.13 17.31.39" type: "video" }
