@@ -33,7 +33,7 @@ Page {
                             link: "<url>"
                         }
                         Image{
-                            src: "herz_outline.png" 
+                            src: "plus.png" 
                             width: 32 
                             height: 32 
                             align: "topEnd"
