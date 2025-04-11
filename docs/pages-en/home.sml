@@ -57,6 +57,10 @@ Page {
             }
         }  
         Spacer { weight: 1 }
+        YouAreNotAlone {
+            message: "If you found this, you are one of us."
+            url: "https://yana.crowdware.at"
+        }
         Button { label: "Find Books" link: "page:app.books" }
     }
 }

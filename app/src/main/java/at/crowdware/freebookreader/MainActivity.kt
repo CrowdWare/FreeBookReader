@@ -133,7 +133,6 @@ class MainActivity : BaseComposeActivity() {
 
                 // navigation targets which are not listed in the drawer
                 for (file in app!!.deployment.files) {
-                    println("entry: ${file.path}")
                     if (file.path.endsWith(".sml")) {
                         list.add(file.path.substringBefore(".sml"))
                     }

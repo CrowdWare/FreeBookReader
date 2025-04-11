@@ -78,6 +78,10 @@ Page {
         }  
         
         Spacer { weight: 1 }
+        YouAreNotAlone {
+            message: "Wenn Du das hier gefunden hast, dann bist Du einer von uns."
+            url: "https://yana.crowdware.at"
+        }
         Button { label: "Bücher Finden" link: "page:app.books" }
     }
 }
