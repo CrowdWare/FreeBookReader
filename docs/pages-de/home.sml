@@ -17,12 +17,11 @@ Page {
             height: 220
 
             LazyContent {
-                Row {
                     Column { 
                         weight:1
 
                         Box {
-                            width: 120
+                            width: 130
 
                             AsyncImage{
                                 src: "<pictureurl>" 
@@ -40,7 +39,6 @@ Page {
                         }
                     }
                     Spacer {amount: 8}
-                }
             }
 
             LazyNoContent {
@@ -63,12 +61,12 @@ Page {
             height: 220
 
             LazyContent {
-                Row {
+                
                     Column { 
                         weight:1
                     
                           Box {
-                            width: 120
+                            width: 140
                         
                             AsyncImage{
                                 src: "<pictureurl>" 
@@ -86,7 +84,7 @@ Page {
                         }
                     }
                     Spacer {amount: 8}
-                }
+                
             }
         }  
         
