@@ -50,7 +50,7 @@ App {
         File { path: "home.sml" time: "2025.04.11 20.05.38" type: "page-en" }
         File { path: "about.sml" time: "2025.04.11 06.20.15" type: "page-de" }
         File { path: "books.sml" time: "2025.04.12 07.19.39" type: "page-de" }
-        File { path: "home.sml" time: "2025.04.12 11.42.13" type: "page-de" }
+        File { path: "home.sml" time: "2025.04.12 11.45.47" type: "page-de" }
         File { path: "about.sml" time: "2025.04.11 06.19.46" type: "page-es" }
         File { path: "books.sml" time: "2025.03.25 07.12.25" type: "page-es" }
         File { path: "home.sml" time: "2025.03.25 07.12.55" type: "page-es" }
