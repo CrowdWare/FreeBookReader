@@ -49,7 +49,7 @@ App {
         File { path: "books.sml" time: "2025.03.25 07.04.46" type: "page-en" }
         File { path: "home.sml" time: "2025.04.11 20.05.38" type: "page-en" }
         File { path: "about.sml" time: "2025.04.11 06.20.15" type: "page-de" }
-        File { path: "books.sml" time: "2025.04.12 12.03.40" type: "page-de" }
+        File { path: "books.sml" time: "2025.04.12 12.07.18" type: "page-de" }
         File { path: "home.sml" time: "2025.04.12 12.03.04" type: "page-de" }
         File { path: "about.sml" time: "2025.04.11 06.19.46" type: "page-es" }
         File { path: "books.sml" time: "2025.03.25 07.12.25" type: "page-es" }
