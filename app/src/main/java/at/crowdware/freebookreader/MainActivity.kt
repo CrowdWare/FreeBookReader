@@ -37,8 +37,11 @@ import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
@@ -62,6 +65,8 @@ class MainActivity : BaseComposeActivity() {
 
     @Composable
     override fun ComposeRoot() {
+        val data = remember { mutableStateOf<Map<String, List<Any>>>(emptyMap()) }
+        var isLoading by remember { mutableStateOf(true) }
         val context = this
         window.decorView.systemUiVisibility = (
                 View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
@@ -71,6 +76,17 @@ class MainActivity : BaseComposeActivity() {
         NoCodeLibMobileTheme(app!!.theme) {
             LocaleManager.init(applicationContext, resources)
             if (app!!.id == "at.crowdware.freebookreader") {
+                if(app!!.restDatasourceId.isNotEmpty() && app!!.restDatasourceUrl.isNotEmpty()) {
+                    // load a datasource via rest call
+                    LaunchedEffect(Unit) {
+                        if (isLoading) {
+                            val map = data.value.toMutableMap()
+                            map[app!!.restDatasourceId] = contentLoader.fetchJsonData(app!!.restDatasourceUrl)
+                            data.value = map
+                            isLoading = false
+                        }
+                    }
+                }
                 // in the local app we use Scaffold and the navigation drawer
                 Scaffold(modifier = Modifier.fillMaxSize()) { _ ->
                     val list = mutableListOf(
@@ -123,7 +139,7 @@ class MainActivity : BaseComposeActivity() {
                             )
                         }
                     }
-                    NavigationView(list, context, "FreeBookReader")
+                    NavigationView(list, context, "FreeBookReader", data)
                 }
             } else {
                 // if the external app is loaded we only render the app
@@ -154,7 +170,8 @@ class MainActivity : BaseComposeActivity() {
                                         list[index],
                                         color,
                                         context,
-                                        navController
+                                        navController,
+                                        data
                                     )
                                 }
                             }

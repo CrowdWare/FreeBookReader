@@ -6,7 +6,7 @@ App {
 
     RestDatasource {
         id: "books"
-        url: "https://artanidos.pythonanywhere.com/crowdware/items?type=book&locale=de"
+        url: "https://artanidos.pythonanywhere.com/crowdware/items?type=book&locale=de&limit=50&order=date"
         mock: "books.json"
     }
 
@@ -50,7 +50,7 @@ App {
         File { path: "home.sml" time: "2025.04.11 20.05.38" type: "page-en" }
         File { path: "about.sml" time: "2025.04.11 06.20.15" type: "page-de" }
         File { path: "books.sml" time: "2025.04.11 13.01.01" type: "page-de" }
-        File { path: "home.sml" time: "2025.04.11 20.06.13" type: "page-de" }
+        File { path: "home.sml" time: "2025.04.12 06.41.12" type: "page-de" }
         File { path: "about.sml" time: "2025.04.11 06.19.46" type: "page-es" }
         File { path: "books.sml" time: "2025.03.25 07.12.25" type: "page-es" }
         File { path: "home.sml" time: "2025.03.25 07.12.55" type: "page-es" }
