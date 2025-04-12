@@ -11,6 +11,7 @@ Page {
         }
         
         LazyRow {
+            padding: "8"
             datasource: "books"
             filter: "inList:favourite[uuid]"
             height: 220
@@ -51,6 +52,7 @@ Page {
             text: "# Neuerscheinungen"
         }
         LazyRow {
+            padding: "8"
             datasource: "books"
             filter: "notInList:favourite[uuid]"
             limit: 13
