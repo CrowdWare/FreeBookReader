@@ -17,27 +17,30 @@ Page {
             height: 220
 
             LazyContent {
-                Column { 
-                    weight:1
-                    Box {
-                        width: 120
+                Row {
+                    Column { 
+                        weight:1
 
-                        AsyncImage{
-                            src: "<pictureurl>" 
-                            width: 120 
-                            link: "<url>"
-                        }
-                        Image{
-                            src: "herz.png"
-                            padding: "5" 
-                            width: 32 
-                            height: 32 
-                            align: "topEnd"
-                            link: "remove:favourite[<uuid>]"
+                        Box {
+                            width: 120
+
+                            AsyncImage{
+                                src: "<pictureurl>" 
+                                width: 120 
+                                link: "<url>"
+                            }
+                            Image{
+                                src: "herz.png"
+                                padding: "5" 
+                                width: 32 
+                                height: 32 
+                                align: "topEnd"
+                                link: "remove:favourite[<uuid>]"
+                            }
                         }
                     }
+                    Spacer {amount: 8}
                 }
-                Spacer {amount: 8}
             }
 
             LazyNoContent {
@@ -60,28 +63,30 @@ Page {
             height: 220
 
             LazyContent {
-                Column { 
-                    weight:1
+                Row {
+                    Column { 
+                        weight:1
                     
-                      Box {
-                        width: 120
-                        
-                        AsyncImage{
-                            src: "<pictureurl>" 
+                          Box {
                             width: 120
-                            link: "<url>"
-                        }
+                        
+                            AsyncImage{
+                                src: "<pictureurl>" 
+                                width: 120
+                                link: "<url>"
+                            }
 
-                        Image{
-                            src: "herz_outline.png"
-                            padding: "5" 
-                            width: 32
-                            height: 32
-                            align: "topEnd"
-                            link: "add:favourite[<uuid>]"}
+                            Image{
+                                src: "herz_outline.png"
+                                padding: "5" 
+                                width: 32
+                                height: 32
+                                align: "topEnd"
+                                link: "add:favourite[<uuid>]"}
+                        }
                     }
+                    Spacer {amount: 8}
                 }
-                Spacer {amount: 8}
             }
         }  
         
