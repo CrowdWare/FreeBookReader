@@ -31,8 +31,8 @@ Page {
                         Image{
                             src: "herz.png"
                             padding: "5 15 5 5" 
-                            width: 37 
-                            height: 37 
+                            width: 48 
+                            height: 48 
                             align: "topEnd"
                             link: "remove:favourite[<uuid>]"
                         }
@@ -76,8 +76,8 @@ Page {
                         Image{
                             src: "herz_outline.png"
                             padding: "5 15 5 5" 
-                            width: 37
-                            height: 37
+                            width: 48
+                            height: 48
                             align: "topEnd"
                             link: "add:favourite[<uuid>]"}
                     }
