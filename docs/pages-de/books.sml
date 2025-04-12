@@ -17,7 +17,7 @@ Page {
 
 
         LazyColumn {
-            url: "https://artanidos.pythonanywhere.com/crowdware/items?type=book&locale=de" 
+            datasource: "books" 
             weight: 1
 
             LazyContent {

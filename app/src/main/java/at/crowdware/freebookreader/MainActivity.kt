@@ -83,11 +83,9 @@ class MainActivity : BaseComposeActivity() {
                     LaunchedEffect(Unit) {
                         if (isLoading) {
                             val map = data.value.toMutableMap()
-                            println("Just before fetch")
                             map[app!!.restDatasourceId] = contentLoader.fetchJsonData(app!!.restDatasourceUrl)
                             data.value = map
                             isLoading = false
-                            println("✅ Daten geladen: ${map[app!!.restDatasourceId]?.size}")
                         }
                     }
                 }
