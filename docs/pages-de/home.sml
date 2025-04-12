@@ -30,7 +30,7 @@ Page {
                         }
                         Image{
                             src: "herz.png"
-                            padding: "5 15 5 5" 
+                            padding: "5 15 0 0" 
                             width: 48 
                             height: 48 
                             align: "topEnd"
@@ -75,7 +75,7 @@ Page {
 
                         Image{
                             src: "herz_outline.png"
-                            padding: "5 15 5 5" 
+                            padding: "5 15 0 0" 
                             width: 48
                             height: 48
                             align: "topEnd"
