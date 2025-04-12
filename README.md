@@ -38,47 +38,6 @@ FreeBookReader supports loading local `.sml` and `.json` files – perfect for o
 
 ---
 
-## 🔧 Example `App.sml`
-
-```sml
-App {
-    RestDatasource {
-        id: "books"
-        url: "https://example.com/api/books"
-        mock: "books.json"
-    }
-
-    Page {
-        LazyRow {
-            datasource: "books"
-            filter: "notInList:favourite[uuid]"
-            order: "date desc"
-            spacing: "8"
-
-            LazyContent {
-                Row {
-                    Box {
-                        AsyncImage { src: "<pictureurl>" }
-                        Image {
-                            src: "herz_outline.png"
-                            link: "add:favourite[<uuid>]"
-                        }
-                    }
-                    Spacer { amount: 8 }
-                }
-            }
-        }
-
-        YouAreNotAlone {
-            message: "If you found this, you are one of us."
-            url: "https://yana.crowdware.at"
-        }
-    }
-}
-```
-
----
-
 ## 🌍 Philosophy
 
 > Read freely. Create freely. Without gatekeepers.  
