@@ -4,15 +4,15 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "at.crowdware.nocodelibmobile",
+  "applicationId": "at.crowdware.freebookreader",
   "variantName": "release",
   "elements": [
     {
       "type": "SINGLE",
       "filters": [],
       "attributes": [],
-      "versionCode": 138,
-      "versionName": "1.012.04105",
+      "versionCode": 632,
+      "versionName": "1.104.18194",
       "outputFile": "app-release.apk"
     }
   ],
