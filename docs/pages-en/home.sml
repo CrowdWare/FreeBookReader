@@ -42,7 +42,7 @@ Page {
             }
 
             LazyNoContent {
-                Markdown { text: "Sie haben noch kein Buch zu ihren Favoriten gemacht..."
+                Markdown { text: "You don't have favourites marked yet..."
                 }
             }
         }  
