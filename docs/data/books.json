@@ -1,0 +1,35 @@
+[
+{
+    "date":"2025-03-15T17:57:24",
+    "description":"**Spiel des Leben** *Adam Art Ananda*",
+    "locale":"de",
+    "name":"Spiel des Lebens",
+    "pictureurl":"https://raw.githubusercontent.com/AdamArtAnanda/DeinLeben/main/images/cover.png",
+    "publisher":"Adam Art Ananda",
+    "type":"book",
+    "url":"book:https://adamartananda.github.io/DeinLeben",
+    "uuid":"3171ac3f-b51a-464c-bb9d-690c4b28dc04"
+},
+{
+    "date":"2025-03-15T17:57:24",
+    "description":"**Die Reise zum wahren Leben** *Adam Art Ananda*",
+    "locale":"de",
+    "name":"Die Reise zum wahren Leben - Erwachen in einer neuen Welt",
+    "pictureurl":"https://raw.githubusercontent.com/AdamArtAnanda/DieReiseZumWahrenLeben/main/images/cover.png",
+    "publisher":"Adam Art Ananda",
+    "type":"book",
+    "url":"book:https://adamartananda.github.io/DieReiseZumWahrenLeben",
+    "uuid":"3171ac3f-b51a-464c-bb9d-690c4b28dc05"
+},
+{
+    "date":"2025-03-24T13:05:26",
+    "description":"**CrowdFund to Take the System Down**\nWie wir die alte Wirtschaft hinter uns lassen.",
+    "locale":"de",
+    "name":"CrowdFund to Take the System Down",
+    "pictureurl":"https://raw.githubusercontent.com/AdamArtAnanda/CrowdFundToTakeTheSystemDown/main/images/cover-de.png",
+    "publisher":"Adam Art Ananda",
+    "type":"book",
+    "url":"book:https://adamartananda.github.io/CrowdFundToTakeTheSystemDown",
+    "uuid":"a86104e7-d4cf-4f20-9fb7-9b12f2a817f5"
+}
+]

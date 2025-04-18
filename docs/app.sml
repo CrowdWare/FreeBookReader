@@ -6,7 +6,7 @@ App {
 
     RestDatasource {
         id: "books"
-        url: "https://artanidos.pythonanywhere.com/crowdware/items?type=book&locale=de&limit=50&order=date"
+        url: "https://artanidos.pythonanywhere.com/crowdware/items?type=book&limit=50&order=date"
         mock: "books.json"
     }
 
@@ -45,24 +45,24 @@ App {
 
 // deployment start - don't edit here
     Deployment {
-        File { path: "about.sml" time: "2025.04.11 06.14.43" type: "page-en" }
-        File { path: "books.sml" time: "2025.03.25 07.04.46" type: "page-en" }
-        File { path: "home.sml" time: "2025.04.11 20.05.38" type: "page-en" }
-        File { path: "about.sml" time: "2025.04.11 06.20.15" type: "page-de" }
+        File { path: "about.sml" time: "2025.04.18 17.06.12" type: "page-en" }
+        File { path: "books.sml" time: "2025.04.18 17.08.19" type: "page-en" }
+        File { path: "home.sml" time: "2025.04.18 17.11.01" type: "page-en" }
+        File { path: "about.sml" time: "2025.04.18 17.06.01" type: "page-de" }
         File { path: "books.sml" time: "2025.04.12 12.07.18" type: "page-de" }
         File { path: "home.sml" time: "2025.04.12 12.03.04" type: "page-de" }
-        File { path: "about.sml" time: "2025.04.11 06.19.46" type: "page-es" }
-        File { path: "books.sml" time: "2025.03.25 07.12.25" type: "page-es" }
-        File { path: "home.sml" time: "2025.03.25 07.12.55" type: "page-es" }
-        File { path: "about.sml" time: "2025.04.11 06.19.34" type: "page-pt" }
-        File { path: "books.sml" time: "2025.03.25 07.16.37" type: "page-pt" }
-        File { path: "home.sml" time: "2025.03.25 07.16.11" type: "page-pt" }
-        File { path: "about.sml" time: "2025.04.11 06.19.31" type: "page-fr" }
-        File { path: "books.sml" time: "2025.03.25 07.15.01" type: "page-fr" }
-        File { path: "home.sml" time: "2025.03.25 07.15.22" type: "page-fr" }
-        File { path: "about.sml" time: "2025.04.11 06.19.57" type: "page-eo" }
-        File { path: "books.sml" time: "2025.03.25 07.08.49" type: "page-eo" }
-        File { path: "home.sml" time: "2025.03.25 07.09.09" type: "page-eo" }
+        File { path: "about.sml" time: "2025.04.18 17.06.41" type: "page-es" }
+        File { path: "books.sml" time: "2025.04.18 17.08.44" type: "page-es" }
+        File { path: "home.sml" time: "2025.04.18 17.11.24" type: "page-es" }
+        File { path: "about.sml" time: "2025.04.18 17.07.12" type: "page-pt" }
+        File { path: "books.sml" time: "2025.04.18 17.09.05" type: "page-pt" }
+        File { path: "home.sml" time: "2025.04.18 17.11.42" type: "page-pt" }
+        File { path: "about.sml" time: "2025.04.18 17.06.56" type: "page-fr" }
+        File { path: "books.sml" time: "2025.04.18 17.08.53" type: "page-fr" }
+        File { path: "home.sml" time: "2025.04.18 17.11.34" type: "page-fr" }
+        File { path: "about.sml" time: "2025.04.18 17.06.29" type: "page-eo" }
+        File { path: "books.sml" time: "2025.04.18 17.08.31" type: "page-eo" }
+        File { path: "home.sml" time: "2025.04.18 17.11.14" type: "page-eo" }
         File { path: "plus.png" time: "2025.04.11 08.13.25" type: "image" }
         File { path: "desktop.png" time: "2024.10.14 09.37.53" type: "image" }
         File { path: "ship.png" time: "2024.09.03 09.08.18" type: "image" }
@@ -71,6 +71,7 @@ App {
         File { path: "art_anyona.jpg" time: "2024.10.15 00.52.04" type: "image" }
         File { path: "herz_outline.png" time: "2025.04.11 07.13.51" type: "image" }
         File { path: "olaf.jpg" time: "2023.06.11 04.47.15" type: "image" }
+        File { path: "20240516_Tech_Day_Vortragsreihe_Der_eMinuto_Die_Entwicklung_des.m4v" time: "2025.04.12 21.55.03" type: "video" }
 
     }
 // deployment end

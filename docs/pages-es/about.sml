@@ -1,7 +1,7 @@
 Page {
     padding: "8"
     title: "Acerca de"
-    scrollable: "true"
+    scrollable: true
 
     Column {
         padding: "8"
@@ -10,7 +10,7 @@ Page {
         Spacer { amount: 8 }
         Markdown {
             text: 
-"Puede diseñar este tipo de aplicaciones con el FreeBookDesigner.
+"Puede diseñar este tipo de aplicaciones con el NoCodeDesigner.
 Para probar una aplicación de este tipo, necesita esta aplicación de navegador." 
         }
         Spacer {amount: 8}

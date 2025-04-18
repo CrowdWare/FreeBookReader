@@ -17,20 +17,29 @@ Page {
 
 
         LazyColumn {
-            url: "https://artanidos.pythonanywhere.com/crowdware/items?type=book&locale=es" 
+            datasource: "books" 
             weight: 1
 
             LazyContent {
                 Row {
                     padding: "8"
               
-                        AsyncImage { 
+                    Box {
+                        width: 120
+
+                        AsyncImage{
                             src: "<pictureurl>" 
-                            width: 50
-                            weight: 1
+                            width: 120 
                             link: "<url>"
                         }
-                        
+                        Image{
+                            src: "plus.png" 
+                            padding: "5"
+                            width: 32 
+                            height: 32 
+                            align: "topEnd"
+                            link: "add:favourite[<uuid>]"}
+                    }                        
                     
                     Spacer {amount: 8}
                     Markdown {
@@ -39,7 +48,6 @@ Page {
                     }
                     Spacer {amount: 8}
                 }
-                //Button {label: "FAV" link: "add:favourite[<uuid>]"}
             }
         }
 

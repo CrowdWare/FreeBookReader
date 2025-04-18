@@ -11,28 +11,41 @@ Page {
         }
         
         LazyRow {
-            url: "https://artanidos.pythonanywhere.com/crowdware/items?type=book&locale=es&filter=inList:favourite[uuid]"
+            padding: "8"
+            datasource: "books"
+            filter: "inList:favourite[uuid]"
             height: 220
 
             LazyContent {
                 Column { 
                     weight:1
-                    
-                    AsyncImage { 
-                        src: "<pictureurl>" 
-                        width: 120
-                        link: "<url>"
+
+                    Box {
+                        width: 130
+
+                        AsyncImage{
+                            src: "<pictureurl>" 
+                            width: 120 
+                            link: "<url>"
+                        }
+                        Image{
+                            src: "herz.png"
+                            padding: "5 15 0 0" 
+                            width: 48 
+                            height: 48 
+                            align: "topEnd"
+                            link: "remove:favourite[<uuid>]"
+                        }
                     }
-                    //Button {label: "REM" link: "remove:favourite[<uuid>]"}
                 }
-                
                 Spacer {amount: 8}
             }
 
             LazyNoContent {
-                Markdown { text: "## Aún no has añadido ningún libro a tus favoritos..."}
+                Markdown { text: "Sie haben noch kein Buch zu ihren Favoriten gemacht..."
+                }
             }
-        }  
+        }   
         
         Spacer {amount: 16}
         Markdown {
@@ -40,20 +53,36 @@ Page {
             text: "# Novedades"
           }
         LazyRow {
-            url: "https://artanidos.pythonanywhere.com/crowdware/items?type=book&locale=es&limit=13&filter=notInList:favourite[uuid]"
+            padding: "8"
+            datasource: "books"
+            filter: "notInList:favourite[uuid]"
+            limit: 13
+            order: "date"
             height: 220
 
             LazyContent {
                 Column { 
                     weight:1
                     
-                    AsyncImage { 
-                        src: "<pictureurl>" 
-                        width: 120
-                        link: "<url>"
+                      Box {
+                        width: 130
+                        
+                        AsyncImage{
+                            src: "<pictureurl>" 
+                            width: 120
+                            link: "<url>"
+                        }
+
+                        Image{
+                            src: "herz_outline.png"
+                            padding: "5 15 0 0" 
+                            width: 48
+                            height: 48
+                            align: "topEnd"
+                            link: "add:favourite[<uuid>]"}
                     }
                 }
-                Spacer {amount: 8}
+                Spacer {amount: 8} 
             }
         }  
         Spacer { weight: 1 }

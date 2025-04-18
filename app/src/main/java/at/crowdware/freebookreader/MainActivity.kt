@@ -76,7 +76,6 @@ class MainActivity : BaseComposeActivity() {
         NoCodeLibMobileTheme(app!!.theme) {
             LocaleManager.init(applicationContext, resources)
             if (app!!.id == "at.crowdware.freebookreader") {
-                println("Just before launch: ${app!!.restDatasourceId}, ${app!!.restDatasourceUrl}")
                 if(app!!.restDatasourceId.isNotEmpty() && app!!.restDatasourceUrl.isNotEmpty()) {
                     // load a datasource via rest call
 

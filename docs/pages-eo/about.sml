@@ -1,7 +1,7 @@
 Page {
     padding: "8"
     title: "Pri"
-    scrollable: "true"
+    scrollable: true
 
     Column {
         padding: "8"
@@ -10,7 +10,7 @@ Page {
         Spacer { amount: 8 }
         Markdown {
             text: 
-"Vi povas desegni tiajn aplikojn per la FreeBookDesigner.
+"Vi povas desegni tiajn aplikojn per la NoCodeDesigner.
 Por testi tian apon, vi bezonas ĉi tiun retumilan aplikaĵon." 
         }
         Spacer {amount: 8}
