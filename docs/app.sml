@@ -71,7 +71,6 @@ App {
         File { path: "art_anyona.jpg" time: "2024.10.15 00.52.04" type: "image" }
         File { path: "herz_outline.png" time: "2025.04.11 07.13.51" type: "image" }
         File { path: "olaf.jpg" time: "2023.06.11 04.47.15" type: "image" }
-        File { path: "20240516_Tech_Day_Vortragsreihe_Der_eMinuto_Die_Entwicklung_des.m4v" time: "2025.04.12 21.55.03" type: "video" }
 
     }
 // deployment end
