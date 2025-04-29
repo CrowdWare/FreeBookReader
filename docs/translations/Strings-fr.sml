@@ -7,4 +7,5 @@ Strings {
     home: "Retour à la page d'accueil"
     about: "À propos"
     aboutapp: "À propos de cette application"
+    lang: "fr"
 }

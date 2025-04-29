@@ -6,7 +6,7 @@ App {
 
     RestDatasource {
         id: "books"
-        url: "https://artanidos.pythonanywhere.com/crowdware/items?type=book&limit=50&order=date"
+        url: "https://artanidos.pythonanywhere.com/crowdware/items?type=book&limit=50&order=date&locale=string:lang"
         mock: "books.json"
     }
 
@@ -47,7 +47,7 @@ App {
     Deployment {
         File { path: "about.sml" time: "2025.04.29 21.18.52" type: "page" }
         File { path: "books.sml" time: "2025.04.29 19.55.48" type: "page" }
-        File { path: "home.sml" time: "2025.04.29 21.08.56" type: "page" }
+        File { path: "home.sml" time: "2025.04.29 22.18.29" type: "page" }
         File { path: "part1-pt.md" time: "2025.04.29 19.59.41" type: "part" }
         File { path: "part3-pt.md" time: "2025.04.29 20.01.30" type: "part" }
         File { path: "part2-pt.md" time: "2025.04.29 20.00.54" type: "part" }
@@ -74,12 +74,12 @@ App {
         File { path: "art_anyona.jpg" time: "2024.10.15 00.52.04" type: "image" }
         File { path: "herz_outline.png" time: "2025.04.11 07.13.51" type: "image" }
         File { path: "olaf.jpg" time: "2023.06.11 04.47.15" type: "image" }
-        File { path: "Strings-pt.sml" time: "2025.04.29 20.05.47" type: "translation" }
-        File { path: "Strings-de.sml" time: "2025.04.29 19.48.03" type: "translation" }
-        File { path: "Strings-es.sml" time: "2025.04.29 20.13.02" type: "translation" }
-        File { path: "Strings-fr.sml" time: "2025.04.29 22.07.54" type: "translation" }
-        File { path: "Strings-eo.sml" time: "2025.04.29 20.17.04" type: "translation" }
-        File { path: "Strings-en.sml" time: "2025.04.29 19.48.27" type: "translation" }
+        File { path: "Strings-pt.sml" time: "2025.04.29 22.25.13" type: "translation" }
+        File { path: "Strings-de.sml" time: "2025.04.29 22.24.35" type: "translation" }
+        File { path: "Strings-es.sml" time: "2025.04.29 22.25.00" type: "translation" }
+        File { path: "Strings-fr.sml" time: "2025.04.29 22.25.07" type: "translation" }
+        File { path: "Strings-eo.sml" time: "2025.04.29 22.24.54" type: "translation" }
+        File { path: "Strings-en.sml" time: "2025.04.29 22.24.45" type: "translation" }
 
     }
 // deployment end

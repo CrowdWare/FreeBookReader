@@ -55,6 +55,7 @@ import at.crowdware.nocodelibmobile.ui.theme.NoCodeLibMobileTheme
 import at.crowdware.nocodelibmobile.ui.widgets.NavigationItem
 import at.crowdware.nocodelibmobile.ui.widgets.NavigationView
 import at.crowdware.nocodelibmobile.utils.LoadPage
+import at.crowdware.nocodelibmobile.utils.translate
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 class MainActivity : BaseComposeActivity() {
@@ -78,7 +79,8 @@ class MainActivity : BaseComposeActivity() {
             if (app!!.id == "at.crowdware.freebookreader") {
                 if(app!!.restDatasourceId.isNotEmpty() && app!!.restDatasourceUrl.isNotEmpty()) {
                     // load a datasource via rest call
-
+                    app!!.restDatasourceUrl = translate(app!!.restDatasourceUrl, this)
+                    println("rest: ${app!!.restDatasourceUrl}")
                     LaunchedEffect(Unit) {
                         if (isLoading) {
                             val map = data.value.toMutableMap()

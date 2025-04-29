@@ -7,4 +7,5 @@ Strings {
     home: "Reen al la Hejmpaĝo"
     about: "Pri"
     aboutapp: "Pri ĉi tiu apo"
+    lang: "eo"
 }

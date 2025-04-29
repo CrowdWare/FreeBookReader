@@ -7,4 +7,5 @@ Strings {
     home: "Home"
     about: "Über"
     aboutapp: "Über diese App"
+    lang: "de"
 }

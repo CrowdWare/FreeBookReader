@@ -4,7 +4,7 @@ Page {
 
     Column {
         padding: "8"
-                        
+                       
         Markdown {
             color: "#4C9BD9"
             text: "string:favorites"
@@ -31,8 +31,8 @@ Page {
                         Image{
                             src: "herz.png"
                             padding: "5 15 0 0" 
-                            width: 48 
-                            height: 48 
+                            width: 32 
+                            height: 32 
                             align: "topEnd"
                             link: "remove:favourite[<uuid>]"
                         }
@@ -76,8 +76,8 @@ Page {
                         Image{
                             src: "herz_outline.png"
                             padding: "5 15 0 0" 
-                            width: 48
-                            height: 48
+                            width: 32
+                            height: 32
                             align: "topEnd"
                             link: "add:favourite[<uuid>]"}
                     }
