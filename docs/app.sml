@@ -45,24 +45,24 @@ App {
 
 // deployment start - don't edit here
     Deployment {
-        File { path: "about.sml" time: "2025.04.18 17.06.12" type: "page-en" }
-        File { path: "books.sml" time: "2025.04.18 17.08.19" type: "page-en" }
-        File { path: "home.sml" time: "2025.04.18 17.33.55" type: "page-en" }
-        File { path: "about.sml" time: "2025.04.18 17.06.01" type: "page-de" }
-        File { path: "books.sml" time: "2025.04.12 12.07.18" type: "page-de" }
-        File { path: "home.sml" time: "2025.04.12 12.03.04" type: "page-de" }
-        File { path: "about.sml" time: "2025.04.18 17.06.41" type: "page-es" }
-        File { path: "books.sml" time: "2025.04.18 17.08.44" type: "page-es" }
-        File { path: "home.sml" time: "2025.04.18 17.11.24" type: "page-es" }
-        File { path: "about.sml" time: "2025.04.18 17.07.12" type: "page-pt" }
-        File { path: "books.sml" time: "2025.04.18 17.09.05" type: "page-pt" }
-        File { path: "home.sml" time: "2025.04.18 17.11.42" type: "page-pt" }
-        File { path: "about.sml" time: "2025.04.18 17.06.56" type: "page-fr" }
-        File { path: "books.sml" time: "2025.04.18 17.08.53" type: "page-fr" }
-        File { path: "home.sml" time: "2025.04.18 17.11.34" type: "page-fr" }
-        File { path: "about.sml" time: "2025.04.18 17.06.29" type: "page-eo" }
-        File { path: "books.sml" time: "2025.04.18 17.08.31" type: "page-eo" }
-        File { path: "home.sml" time: "2025.04.18 17.11.14" type: "page-eo" }
+        File { path: "about.sml" time: "2025.04.29 19.55.26" type: "page" }
+        File { path: "books.sml" time: "2025.04.29 19.55.48" type: "page" }
+        File { path: "home.sml" time: "2025.04.29 19.46.57" type: "page" }
+        File { path: "part1-pt.md" time: "2025.04.29 19.59.41" type: "part" }
+        File { path: "part3-pt.sml" time: "2025.04.29 20.01.30" type: "part" }
+        File { path: "part2-en.md" time: "2025.04.29 19.54.01" type: "part" }
+        File { path: "part3-de.md" time: "2025.04.29 19.52.33" type: "part" }
+        File { path: "part2-es.md" time: "2025.04.29 20.10.51" type: "part" }
+        File { path: "part2-pt.sml" time: "2025.04.29 20.00.54" type: "part" }
+        File { path: "part2-eo.md" time: "2025.04.29 20.14.51" type: "part" }
+        File { path: "part1-de.md" time: "2025.04.29 19.49.49" type: "part" }
+        File { path: "part1-en.md" time: "2025.04.29 19.53.27" type: "part" }
+        File { path: "part3-en.md" time: "2025.04.29 19.54.33" type: "part" }
+        File { path: "part1-es.md" time: "2025.04.29 20.10.10" type: "part" }
+        File { path: "part3-eo.md" time: "2025.04.29 20.15.17" type: "part" }
+        File { path: "part3-es.md" time: "2025.04.29 20.11.09" type: "part" }
+        File { path: "part2-de.md" time: "2025.04.29 20.00.44" type: "part" }
+        File { path: "part1-eo.md" time: "2025.04.29 20.14.24" type: "part" }
         File { path: "plus.png" time: "2025.04.11 08.13.25" type: "image" }
         File { path: "desktop.png" time: "2024.10.14 09.37.53" type: "image" }
         File { path: "ship.png" time: "2024.09.03 09.08.18" type: "image" }
