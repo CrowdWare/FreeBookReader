@@ -71,6 +71,12 @@ App {
         File { path: "art_anyona.jpg" time: "2024.10.15 00.52.04" type: "image" }
         File { path: "herz_outline.png" time: "2025.04.11 07.13.51" type: "image" }
         File { path: "olaf.jpg" time: "2023.06.11 04.47.15" type: "image" }
+        File { path: "Strings-pt.sml" time: "2025.04.29 20.05.47" type: "translation" }
+        File { path: "Strings-de.sml" time: "2025.04.29 19.48.03" type: "translation" }
+        File { path: "Strings-es.sml" time: "2025.04.29 20.13.02" type: "translation" }
+        File { path: "Strings-fr.sml" time: "2025.04.29 20.08.43" type: "translation" }
+        File { path: "Strings-eo.sml" time: "2025.04.29 20.17.04" type: "translation" }
+        File { path: "Strings-en.sml" time: "2025.04.29 19.48.27" type: "translation" }
 
     }
 // deployment end
