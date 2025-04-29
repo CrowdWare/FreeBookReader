@@ -7,7 +7,7 @@ Page {
                         
         Markdown {
             color: "#4C9BD9"
-            text: "# Favoriten"
+            text: "string:favorites"
         }
         
         LazyRow {
@@ -42,7 +42,7 @@ Page {
             }
 
             LazyNoContent {
-                Markdown { text: "Sie haben noch kein Buch zu ihren Favoriten gemacht..."
+                Markdown { text: "string:youdonthavenany"
                 }
             }
         }  
@@ -50,7 +50,7 @@ Page {
         Spacer {amount: 16}
         Markdown {
             color: "#4C9BD9"
-            text: "# Neuerscheinungen"
+            text: "# string:newreleases"
         }
         LazyRow {
             padding: "8"
@@ -91,6 +91,6 @@ Page {
             message: "Wenn Du das hier gefunden hast, dann bist Du einer von uns."
             url: "https://yana.crowdware.at"
         }
-        Button { label: "Bücher Finden" link: "page:app.books" }
+        Button { label: "string:findbooks" link: "page:app.books" }
     }
 }

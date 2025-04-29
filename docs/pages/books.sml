@@ -8,13 +8,10 @@ Page {
                         
         Markdown {
             color: "#4C9BD9"
-            text: "# Bücher Finden"
+            text: "# string:findbooks"
         }
-        Markdown {
-            text: "Hier findest Du eine Liste aller veröffentlichten Bücher."
-        }
+        Markdown {text: "string:hereyouwillfind"}
         Spacer {amount: 8}
-
 
         LazyColumn {
             datasource: "books" 
@@ -50,8 +47,7 @@ Page {
                 }
             }
         }
-
         Spacer {amount: 8}
-        Button {label: "Home" link: "page:app.home" }
+        Button {label: "string:home" link: "page:app.home" }
     }
 }

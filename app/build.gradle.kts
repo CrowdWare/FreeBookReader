@@ -60,7 +60,7 @@ android {
         }
         applicationId = "at.crowdware.freebookreader"
         minSdk = 29
-        targetSdk = 34
+        targetSdk = 35
         versionCode = newVersionCode
         versionName = "$version"
 
