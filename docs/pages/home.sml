@@ -50,7 +50,7 @@ Page {
         Spacer {amount: 16}
         Markdown {
             color: "#4C9BD9"
-            text: "# string:newreleases"
+            text: "string:newreleases"
         }
         LazyRow {
             padding: "8"
