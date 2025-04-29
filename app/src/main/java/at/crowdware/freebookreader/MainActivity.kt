@@ -79,12 +79,13 @@ class MainActivity : BaseComposeActivity() {
             if (app!!.id == "at.crowdware.freebookreader") {
                 if(app!!.restDatasourceId.isNotEmpty() && app!!.restDatasourceUrl.isNotEmpty()) {
                     // load a datasource via rest call
-                    app!!.restDatasourceUrl = translate(app!!.restDatasourceUrl, this)
-                    println("rest: ${app!!.restDatasourceUrl}")
-                    LaunchedEffect(Unit) {
+                    // but first translate the locale in the url (string:lang)
+                    val url = translate(app!!.restDatasourceUrl, this)
+
+                    LaunchedEffect(url) {
                         if (isLoading) {
                             val map = data.value.toMutableMap()
-                            map[app!!.restDatasourceId] = contentLoader.fetchJsonData(app!!.restDatasourceUrl)
+                            map[app!!.restDatasourceId] = contentLoader.fetchJsonData(url)
                             data.value = map
                             isLoading = false
                         }
