@@ -47,7 +47,7 @@ App {
     Deployment {
         File { path: "about.sml" time: "2025.04.29 19.55.26" type: "page" }
         File { path: "books.sml" time: "2025.04.29 19.55.48" type: "page" }
-        File { path: "home.sml" time: "2025.04.29 19.46.57" type: "page" }
+        File { path: "home.sml" time: "2025.04.29 21.08.56" type: "page" }
         File { path: "part1-pt.md" time: "2025.04.29 19.59.41" type: "part" }
         File { path: "part3-pt.sml" time: "2025.04.29 20.01.30" type: "part" }
         File { path: "part2-en.md" time: "2025.04.29 19.54.01" type: "part" }
