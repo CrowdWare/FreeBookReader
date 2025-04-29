@@ -18,6 +18,6 @@ Page {
         Spacer {amount: 8}
         Markdown {text: "part:part3"}
         Spacer {amount: 8 }
-        Button {label: "Zurück zur Startseite" link: "page:app.home" }
+        Button {label: "string:home" link: "page:app.home" }
     }
 }
