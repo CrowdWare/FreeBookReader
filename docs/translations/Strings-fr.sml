@@ -4,7 +4,7 @@ Strings {
     newreleases: "# Nouveautés"
     findbooks: "Trouver des livres"
     hereyouwillfind: "Vous trouverez ici une liste de tous les livres publiés."
-    home: "Home"
+    home: "Retour à la page d'accueil"
     about: "À propos"
     aboutapp: "À propos de cette application"
 }

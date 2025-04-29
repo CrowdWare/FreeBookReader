@@ -49,15 +49,18 @@ App {
         File { path: "books.sml" time: "2025.04.29 19.55.48" type: "page" }
         File { path: "home.sml" time: "2025.04.29 21.08.56" type: "page" }
         File { path: "part1-pt.md" time: "2025.04.29 19.59.41" type: "part" }
-        File { path: "part3-pt.sml" time: "2025.04.29 20.01.30" type: "part" }
+        File { path: "part3-pt.md" time: "2025.04.29 20.01.30" type: "part" }
+        File { path: "part2-pt.md" time: "2025.04.29 20.00.54" type: "part" }
         File { path: "part2-en.md" time: "2025.04.29 19.54.01" type: "part" }
+        File { path: "part2-fr.md" time: "2025.04.29 22.06.45" type: "part" }
         File { path: "part3-de.md" time: "2025.04.29 19.52.33" type: "part" }
         File { path: "part2-es.md" time: "2025.04.29 20.10.51" type: "part" }
-        File { path: "part2-pt.sml" time: "2025.04.29 20.00.54" type: "part" }
         File { path: "part2-eo.md" time: "2025.04.29 20.14.51" type: "part" }
         File { path: "part1-de.md" time: "2025.04.29 19.49.49" type: "part" }
+        File { path: "part1-fr.md" time: "2025.04.29 22.06.07" type: "part" }
         File { path: "part1-en.md" time: "2025.04.29 19.53.27" type: "part" }
         File { path: "part3-en.md" time: "2025.04.29 19.54.33" type: "part" }
+        File { path: "part3-fr.md" time: "2025.04.29 22.07.11" type: "part" }
         File { path: "part1-es.md" time: "2025.04.29 20.10.10" type: "part" }
         File { path: "part3-eo.md" time: "2025.04.29 20.15.17" type: "part" }
         File { path: "part3-es.md" time: "2025.04.29 20.11.09" type: "part" }
@@ -74,7 +77,7 @@ App {
         File { path: "Strings-pt.sml" time: "2025.04.29 20.05.47" type: "translation" }
         File { path: "Strings-de.sml" time: "2025.04.29 19.48.03" type: "translation" }
         File { path: "Strings-es.sml" time: "2025.04.29 20.13.02" type: "translation" }
-        File { path: "Strings-fr.sml" time: "2025.04.29 20.08.43" type: "translation" }
+        File { path: "Strings-fr.sml" time: "2025.04.29 22.07.54" type: "translation" }
         File { path: "Strings-eo.sml" time: "2025.04.29 20.17.04" type: "translation" }
         File { path: "Strings-en.sml" time: "2025.04.29 19.48.27" type: "translation" }
 
